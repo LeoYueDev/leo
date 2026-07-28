@@ -9,7 +9,7 @@ siteUrl: "https://leoyuedev.github.io"
 showPoweredBy: true
 
 # ── Identity ─────────────────────────────────────────────────────────────
-name: "Leo Yue"
+name: "Leo Peng Yue"
 title: "AI Engineer"
 tagline: "I build free portfolios and resumes for everyone."
 email: "leo.yue.dev@gmail.com"
@@ -18,7 +18,7 @@ location: "Chengdu, China"
 avatarUrl: "https://api.dicebear.com/9.x/fun-emoji/svg?seed=Alex&mouth[]=wideSmile&radius=12"
 
 # ── Status ─────────────────────────────────────────────────────────────
-openToWork: true
+openToWork: false
 
 # ── Theme ──────────────────────────────────────────────────────────────
 defaultTheme: "system"
@@ -84,7 +84,7 @@ skills:
 # ── Experience ─────────────────────────────────────────────────────────
 experience:
   - company: "NCS China"
-    role: "Software Engineer, AI Central"
+    role: "AI Engineer"
     period: "2026.06 – Present"
     description: |
       Building AI-powered solutions for the banking sector. Focus on RAG systems,
