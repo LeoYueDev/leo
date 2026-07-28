@@ -18,7 +18,7 @@ showPoweredBy: true  # Set to true to show a small "Made with GitVitae" badge in
 
 # ── Identity ───────────────────────────────────────────── (required) ──
 name: "Leo Yue"              # Your name — shown in the header and used as a fallback in the avatar
-title: "Portfolio-Resume Engineer"
+title: "AI Engineer"
 tagline: "I build free portfolios and resumes for everyone."
 email: "loe.yue.dec@gmail"
 phone: ""                    # Optional — e.g. "+1 (555) 000-1234". Shown in contact section and resume.
