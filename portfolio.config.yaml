@@ -13,8 +13,8 @@
 # ║  Change it to "portfolio" once you have filled in your details.      ║
 # ╚══════════════════════════════════════════════════════════════════════╝
 siteMode: "landing"   # ← CHANGE THIS to "portfolio"
-siteUrl:  "https://yourusername.github.io"  # ← Your GitHub Pages URL (used for RSS & canonical links)
-showPoweredBy: false  # Set to true to show a small "Made with GitVitae" badge in your footer (helps others discover GitVitae)
+siteUrl:  "https://leo.github.io"  # ← Your GitHub Pages URL (used for RSS & canonical links)
+showPoweredBy: true  # Set to true to show a small "Made with GitVitae" badge in your footer (helps others discover GitVitae)
 
 # ── Identity ───────────────────────────────────────────── (required) ──
 name: "Leo Yue"              # Your name — shown in the header and used as a fallback in the avatar
