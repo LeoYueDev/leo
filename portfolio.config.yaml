@@ -13,7 +13,7 @@
 # ║  Change it to "portfolio" once you have filled in your details.      ║
 # ╚══════════════════════════════════════════════════════════════════════╝
 siteMode: "landing"   # ← CHANGE THIS to "portfolio"
-siteUrl:  "https://leo.github.io"  # ← Your GitHub Pages URL (used for RSS & canonical links)
+siteUrl:  "https://leoyuedev.github.io"  # ← Your GitHub Pages URL (used for RSS & canonical links)
 showPoweredBy: true  # Set to true to show a small "Made with GitVitae" badge in your footer (helps others discover GitVitae)
 
 # ── Identity ───────────────────────────────────────────── (required) ──
@@ -21,7 +21,7 @@ name: "Leo Yue"              # Your name — shown in the header and used as a f
 title: "AI Engineer"
 tagline: "I build free portfolios and resumes for everyone."
 email: "loe.yue.dec@gmail"
-phone: ""                    # Optional — e.g. "+1 (555) 000-1234". Shown in contact section and resume.
+phone: "(+86)18780534052"                    # Optional — e.g. "+1 (555) 000-1234". Shown in contact section and resume.
 location: "Chengdu, China"
 avatarUrl: "https://api.dicebear.com/9.x/fun-emoji/svg?seed=Alex&mouth[]=wideSmile&radius=12"  # Demo avatar — replace with your own photo URL (see instructions below)
 # How to add a profile photo (free, no extra account needed):
