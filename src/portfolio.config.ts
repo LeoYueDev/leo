@@ -253,6 +253,16 @@ export interface LocaleUI {
   savePdf: string;
   summary: string;
   ghStats: string;
+  bookChapter: string;
+  workshop: string;
+  communication: string;
+  starsEarned: string;
+  followers: string;
+  publicRepos: string;
+  viewProfile: string;
+  topLanguages: string;
+  rateLimited: string;
+  opensEmailClient: string;
 }
 
 export interface LocaleContent {
@@ -260,6 +270,7 @@ export interface LocaleContent {
   title: string;
   tagline: string;
   location: string;
+  phone?: string;
   about: string;
   resumeUrl: string;
   resumeFileName: string;

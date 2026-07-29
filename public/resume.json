@@ -1,159 +1,194 @@
 {
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
-    "name": "Git Vitae",
-    "label": "Portfolio-Resume Engineer",
+    "name": "Leo Peng Yue",
+    "label": "AI Engineer",
     "image": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=Alex&mouth[]=wideSmile&radius=12",
-    "email": "git-vitae@proton.me",
-    "phone": "",
-    "summary": "I'm a full-stack engineer with 5+ years of experience building products\nthat people love. I specialize in React, Node.js, and distributed systems.\nWhen I'm not coding, I'm hiking trails or experimenting with new coffee\nbrewing methods.\n",
+    "email": "leo.yue.dev@gmail.com",
+    "phone": "(+86)18780534052",
+    "summary": "Hi, I'm Leo — AI Engineer. I build production-grade LLM applications: RAG systems, AI Agents, and model fine-tuning.\nI work across the full stack — from Python and LangChain on the AI side, to Java and SpringCloud on the backend.\nWhat drives me is making AI actually reliable, observable, and maintainable in production.\n",
     "location": {
-      "city": "San Francisco",
-      "region": "CA"
+      "city": "Chengdu",
+      "region": "China"
     },
     "profiles": [
       {
         "network": "GitHub",
-        "url": "https://github.com/yourusername",
-        "username": "yourusername"
+        "url": "https://github.com/LeoYueDev",
+        "username": "LeoYueDev"
       },
       {
         "network": "LinkedIn",
-        "url": "https://linkedin.com/in/yourusername",
-        "username": "yourusername"
+        "url": "https://linkedin.com/in/LeoYueDev",
+        "username": "LeoYueDev"
       }
     ]
   },
   "work": [
     {
-      "name": "Acme Corp",
-      "position": "Senior Full-Stack Engineer",
-      "startDate": "2022",
+      "name": "NCS China",
+      "position": "AI Engineer",
+      "startDate": "2026.06",
       "endDate": "",
-      "summary": "Led migration of monolithic Rails app to microservices.\nReduced p99 latency by 60%. Mentored a team of 4 engineers.\n",
+      "summary": "Building AI-powered solutions for the banking sector. Focus on RAG systems,\nLLM application engineering, and enterprise-grade AI infrastructure.\n",
       "highlights": [
-        "Microservices migration",
-        "60% latency reduction",
-        "Team leadership"
+        "Regulatory Reporting AI-assisted Testing System",
+        "Enterprise Q&A RAG Intelligent System"
       ]
     },
     {
-      "name": "Startup XYZ",
+      "name": "Northking Information Technology Co., Ltd (Chengdu)",
       "position": "Software Engineer",
-      "startDate": "2020",
-      "endDate": "2022",
-      "summary": "Built real-time collaboration features for a SaaS platform serving\n50k users. Owned the entire frontend from scratch.\n",
+      "startDate": "2025.05",
+      "endDate": "2026.05",
+      "summary": "Developed AI and software solutions for enterprise clients.\n",
       "highlights": [
-        "Real-time collaboration",
-        "50k users",
-        "Frontend ownership"
+        "RAG pipeline design",
+        "Multimodal document processing",
+        "Model quantization and deployment"
       ]
     },
     {
-      "name": "Freelance",
-      "position": "Web Developer",
-      "startDate": "2018",
-      "endDate": "2020",
-      "summary": "Delivered 20+ web projects for small businesses and agencies across\ne-commerce, marketing, and internal tools.\n",
+      "name": "58Tongcheng Information Technology Co., Ltd",
+      "position": "Software Engineer",
+      "startDate": "2022.06",
+      "endDate": "2025.05",
+      "summary": "Built AI-powered CRM tools serving 10,000+ sales staff. Designed intent \nrecognition, RAG, workflow, and MCP-based agent platforms.\n",
       "highlights": [
-        "20+ projects",
-        "E-commerce",
-        "Internal tools"
+        "58CRM-Agent Platform",
+        "58CRM-AI Assistant",
+        "Distributed Transaction Messaging Service"
       ]
     }
   ],
   "education": [
     {
-      "institution": "University of California, Berkeley",
-      "area": "B.S. Computer Science",
+      "institution": "Leshan Normal University",
+      "area": "B.S. Computer Science and Technology",
       "studyType": "",
-      "startDate": "2014",
-      "endDate": "2018"
+      "startDate": "2018",
+      "endDate": "2022"
     }
   ],
   "skills": [
     {
-      "name": "Frontend",
+      "name": "LLM & Application",
       "keywords": [
-        "React",
-        "TypeScript",
-        "Next.js",
-        "Tailwind CSS",
-        "Framer Motion"
+        "LangChain",
+        "LangGraph",
+        "RAG",
+        "AI Agent",
+        "MCP Protocol",
+        "Prompt Engineering"
       ]
     },
     {
-      "name": "Backend",
+      "name": "Model & Training",
       "keywords": [
-        "Node.js",
-        "Express",
-        "PostgreSQL",
-        "Redis",
-        "GraphQL"
+        "PyTorch",
+        "Transformers",
+        "QLoRA",
+        "AWQ",
+        "Qwen",
+        "vLLM"
       ]
     },
     {
-      "name": "DevOps",
+      "name": "Backend & Architecture",
+      "keywords": [
+        "Java",
+        "SpringCloud",
+        "Python",
+        "FastAPI",
+        "Microservices"
+      ]
+    },
+    {
+      "name": "Infrastructure & Data",
       "keywords": [
         "Docker",
-        "AWS",
-        "CI/CD",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    {
-      "name": "Tools",
-      "keywords": [
-        "Git",
-        "Figma",
-        "Jest",
-        "Storybook",
-        "Datadog"
+        "Redis",
+        "RabbitMQ",
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB",
+        "Elasticsearch",
+        "Chroma",
+        "Milvus"
       ]
     }
   ],
   "projects": [
     {
-      "name": "OpenDesk",
-      "description": "An open-source project management tool built with React and Go. 2.3k GitHub stars. Real-time updates via WebSockets.",
+      "name": "Regulatory Reporting AI-assisted Testing System",
+      "description": "Designed for bank regulatory reporting test teams. Uses LLM and RAG to auto-generate test cases, SQL scripts, and test data. Handles frequent rule changes with intelligent assistance.",
       "keywords": [
-        "React",
-        "Go",
-        "WebSockets",
-        "PostgreSQL"
+        "Python",
+        "LLM",
+        "RAG",
+        "Chroma",
+        "PostgreSQL",
+        "QLoRA",
+        "Qwen",
+        "LangChain",
+        "LangGraph"
       ],
-      "url": "https://opendesk.example.com"
+      "url": ""
     },
     {
-      "name": "CodeLens",
-      "description": "VS Code extension that uses AI to generate inline documentation. 10k+ installs from the marketplace.",
+      "name": "Enterprise Q&A RAG Intelligent System",
+      "description": "24/7 localized intelligent Q&A for internal employees, HR, and finance teams. Solves issues of scattered policy documents and inconsistent manual responses using multimodal RAG.",
       "keywords": [
-        "TypeScript",
-        "OpenAI",
-        "VS Code API"
+        "Python",
+        "LangChain",
+        "Qwen3-VL",
+        "AWQ",
+        "vLLM",
+        "MongoDB",
+        "PaddleOCR",
+        "Ragas"
       ],
-      "url": "https://github.com/yourusername/codelens"
+      "url": ""
     },
     {
-      "name": "PriceWatch",
-      "description": "Browser extension that tracks price history on e-commerce sites and alerts users to drops.",
+      "name": "58CRM-Agent Platform",
+      "description": "One-stop agent development and runtime platform integrating intent recognition, RAG, workflow, MCP, and skills. Enables automated flow from intent to task execution.",
       "keywords": [
-        "JavaScript",
-        "Chrome API",
-        "Node.js"
+        "Python",
+        "Java",
+        "SpringBoot",
+        "SpringAI",
+        "LoRA",
+        "Qwen2.5",
+        "MCP",
+        "Redis",
+        "ES"
       ],
-      "url": "https://pricewatch.example.com"
+      "url": ""
     },
     {
-      "name": "Logbook",
-      "description": "A minimalist journaling app with end-to-end encryption. Built in a weekend. 500+ users.",
+      "name": "58CRM-AI Assistant",
+      "description": "24/7 intelligent service for 10,000+ sales staff. Solves issues of inaccurate product recommendations, inconsistent scripts, and cumbersome queries.",
       "keywords": [
-        "React Native",
-        "SQLite",
-        "Crypto"
+        "Python",
+        "Java",
+        "RAG",
+        "ES",
+        "Dual-tower Model",
+        "MCP"
       ],
-      "url": "https://github.com/yourusername/logbook"
+      "url": ""
+    },
+    {
+      "name": "58CRM-Distributed Transaction Messaging Service",
+      "description": "Resolves cross-service data inconsistency in CRM system. Self-developed transaction messaging service based on TCC model achieving eventual consistency.",
+      "keywords": [
+        "Java",
+        "SpringBoot",
+        "MySQL",
+        "Redis"
+      ],
+      "url": ""
     }
   ],
   "certificates": [
@@ -178,16 +213,12 @@
   ],
   "languages": [
     {
-      "language": "English",
+      "language": "Chinese",
       "fluency": "Native"
     },
     {
-      "language": "Spanish",
+      "language": "English",
       "fluency": "Conversational"
-    },
-    {
-      "language": "Mandarin",
-      "fluency": "Basic"
     }
   ]
 }

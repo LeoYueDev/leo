@@ -57,14 +57,14 @@ function CopyButton({
 export function ShareModal({ open, onClose }: ShareModalProps) {
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
   const [copyLinkDone, setCopyLinkDone] = useState(false);
-  const { t } = useI18n();
+  const { t, content } = useI18n();
 
   const portfolioUrl =
     typeof window !== 'undefined'
       ? `${window.location.origin}${window.location.pathname.replace(/\/$/, '') || '/'}`
       : '';
 
-  const pageTitle = `${config.name} — ${config.title}`;
+  const pageTitle = `${content.name} — ${content.title}`;
 
   useEffect(() => {
     if (!open || !portfolioUrl) return;
@@ -85,20 +85,20 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
     if (!qrDataUrl) return;
     const a = document.createElement('a');
     a.href = qrDataUrl;
-    a.download = `${config.name.replace(/\s+/g, '-')}-qr.png`;
+    a.download = `${content.name.replace(/\s+/g, '-')}-qr.png`;
     a.click();
   };
 
   const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(portfolioUrl)}`;
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out my portfolio 👋`)}&url=${encodeURIComponent(portfolioUrl)}`;
-  const emailUrl = `mailto:?subject=${encodeURIComponent(`${config.name}'s Portfolio`)}&body=${encodeURIComponent(`Hi,\n\nCheck out my portfolio:\n${portfolioUrl}`)}`;
+  const emailUrl = `mailto:?subject=${encodeURIComponent(`${content.name}'s Portfolio`)}&body=${encodeURIComponent(`Hi,\n\nCheck out my portfolio:\n${portfolioUrl}`)}`;
 
   const emailSignature = [
     `<table cellpadding="0" cellspacing="0" style="font-family:Arial,sans-serif;font-size:14px;color:#333333;">`,
-    `  <tr><td style="padding-bottom:2px;"><strong>${config.name}</strong></td></tr>`,
-    `  <tr><td style="color:#666666;padding-bottom:2px;">${config.title}</td></tr>`,
-    config.location
-      ? `  <tr><td style="color:#666666;padding-bottom:6px;">${config.location}</td></tr>`
+    `  <tr><td style="padding-bottom:2px;"><strong>${content.name}</strong></td></tr>`,
+    `  <tr><td style="color:#666666;padding-bottom:2px;">${content.title}</td></tr>`,
+    content.location
+      ? `  <tr><td style="color:#666666;padding-bottom:6px;">${content.location}</td></tr>`
       : '',
     `  <tr><td><a href="${portfolioUrl}" style="color:#6366f1;text-decoration:none;">🌐 Portfolio</a>${config.email ? ` &nbsp;·&nbsp; <a href="mailto:${config.email}" style="color:#6366f1;text-decoration:none;">${config.email}</a>` : ''}</td></tr>`,
     `</table>`,
@@ -210,11 +210,11 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
             <div className="bg-secondary border-border rounded-xl border p-3">
               <div className="bg-background border-border/60 mb-2.5 rounded-lg border p-2.5 text-xs">
                 <div className="text-foreground font-semibold">
-                  {config.name}
+                  {content.name}
                 </div>
-                <div className="text-muted-foreground">{config.title}</div>
-                {config.location && (
-                  <div className="text-muted-foreground">{config.location}</div>
+                <div className="text-muted-foreground">{content.title}</div>
+                {content.location && (
+                  <div className="text-muted-foreground">{content.location}</div>
                 )}
                 <a
                   href={portfolioUrl}

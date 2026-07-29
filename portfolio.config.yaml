@@ -71,6 +71,7 @@ en:
   title: "AI Engineer"
   tagline: "I build free portfolios and resumes for everyone."
   location: "Chengdu, China"
+  phone: "(+86)18780534052"
 
   about: |
     Hi, I'm Leo — AI Engineer. I build production-grade LLM applications: RAG systems, AI Agents, and model fine-tuning.
@@ -309,6 +310,16 @@ en:
     savePdf: "Save PDF"
     summary: "Summary"
     ghStats: "GitHub Stats"
+    bookChapter: "Book Chapter"
+    workshop: "Workshop"
+    communication: "Communication"
+    starsEarned: "Stars earned"
+    followers: "Followers"
+    publicRepos: "Public repos"
+    viewProfile: "View profile"
+    topLanguages: "Top languages"
+    rateLimited: "GitHub API rate limit reached — stats will appear on next load."
+    opensEmailClient: "Opens your email client with the message pre-filled. "
 
 # ═══════════════════════════════════════════════════════════════════════
 #  中文 LOCALE (fill in translations below)
@@ -318,6 +329,7 @@ zh:
   title: ""
   tagline: ""
   location: ""
+  phone: ""
 
   about: ""
 
@@ -410,3 +422,13 @@ zh:
     savePdf: ""
     summary: ""
     ghStats: ""
+    bookChapter: "书籍章节"
+    workshop: "研讨会"
+    communication: "语言能力"
+    starsEarned: "获得星标"
+    followers: "关注者"
+    publicRepos: "公开仓库"
+    viewProfile: "查看资料"
+    topLanguages: "常用语言"
+    rateLimited: "GitHub API 请求已超限——统计数据将在下次加载时显示。"
+    opensEmailClient: "打开您的邮件客户端并预填消息。"

@@ -85,9 +85,9 @@ export function GitHubStats() {
 
   const stats = data
     ? [
-        { icon: Star, label: 'Stars earned', value: data.totalStars },
-        { icon: Users, label: 'Followers', value: data.followers },
-        { icon: BookOpen, label: 'Public repos', value: data.publicRepos },
+        { icon: Star, label: t('ui.starsEarned'), value: data.totalStars },
+        { icon: Users, label: t('ui.followers'), value: data.followers },
+        { icon: BookOpen, label: t('ui.publicRepos'), value: data.publicRepos },
       ]
     : [];
 
@@ -129,7 +129,7 @@ export function GitHubStats() {
               className="text-muted-foreground hover:text-primary inline-flex items-center gap-2 text-sm font-medium transition-colors"
             >
               <FaGithub size={16} />
-              View profile
+              {t('ui.viewProfile')}
               <ExternalLink size={12} />
             </motion.a>
           )}
@@ -182,7 +182,7 @@ export function GitHubStats() {
             className="border-border bg-background rounded-2xl border p-8"
           >
             <p className="text-muted-foreground mb-6 font-mono text-xs font-medium tracking-widest uppercase">
-              Top languages
+              {t('ui.topLanguages')}
             </p>
 
             {loading ? (
@@ -239,7 +239,7 @@ export function GitHubStats() {
         {/* Rate-limit notice */}
         {error === 'rate-limited' && (
           <p className="text-muted-foreground mt-6 text-center text-sm">
-            GitHub API rate limit reached — stats will appear on next load.
+            {t('ui.rateLimited')}
           </p>
         )}
       </div>

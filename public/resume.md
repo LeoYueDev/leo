@@ -1,85 +1,85 @@
-# Git Vitae
-**Portfolio-Resume Engineer**
+# Leo Peng Yue
+**AI Engineer**
 
-San Francisco, CA · git-vitae@proton.me · [Github](https://github.com/yourusername) · [Linkedin](https://linkedin.com/in/yourusername)
-
-> **Open to new opportunities**
+Chengdu, China · (+86)18780534052 · leo.yue.dev@gmail.com · [Github](https://github.com/LeoYueDev) · [Linkedin](https://linkedin.com/in/LeoYueDev)
 
 ## Summary
 
-I'm a full-stack engineer with 5+ years of experience building products
-that people love. I specialize in React, Node.js, and distributed systems.
-When I'm not coding, I'm hiking trails or experimenting with new coffee
-brewing methods.
+Hi, I'm Leo — AI Engineer. I build production-grade LLM applications: RAG systems, AI Agents, and model fine-tuning.
+I work across the full stack — from Python and LangChain on the AI side, to Java and SpringCloud on the backend.
+What drives me is making AI actually reliable, observable, and maintainable in production.
 
 
 ## Skills
 
-**Frontend:** React, TypeScript, Next.js, Tailwind CSS, Framer Motion
-**Backend:** Node.js, Express, PostgreSQL, Redis, GraphQL
-**DevOps:** Docker, AWS, CI/CD, Kubernetes, Terraform
-**Tools:** Git, Figma, Jest, Storybook, Datadog
+**LLM & Application:** LangChain, LangGraph, RAG, AI Agent, MCP Protocol, Prompt Engineering
+**Model & Training:** PyTorch, Transformers, QLoRA, AWQ, Qwen, vLLM
+**Backend & Architecture:** Java, SpringCloud, Python, FastAPI, Microservices
+**Infrastructure & Data:** Docker, Redis, RabbitMQ, MySQL, PostgreSQL, MongoDB, Elasticsearch, Chroma, Milvus
 
 ## Experience
 
-### Senior Full-Stack Engineer — Acme Corp
-_2022 – Present_
+### AI Engineer — NCS China
+_2026.06 – Present_
 
-Led migration of monolithic Rails app to microservices.
-Reduced p99 latency by 60%. Mentored a team of 4 engineers.
-
-
-- Microservices migration
-- 60% latency reduction
-- Team leadership
-
-### Software Engineer — Startup XYZ
-_2020 – 2022_
-
-Built real-time collaboration features for a SaaS platform serving
-50k users. Owned the entire frontend from scratch.
+Building AI-powered solutions for the banking sector. Focus on RAG systems,
+LLM application engineering, and enterprise-grade AI infrastructure.
 
 
-- Real-time collaboration
-- 50k users
-- Frontend ownership
+- Regulatory Reporting AI-assisted Testing System
+- Enterprise Q&A RAG Intelligent System
 
-### Web Developer — Freelance
-_2018 – 2020_
+### Software Engineer — Northking Information Technology Co., Ltd (Chengdu)
+_2025.05 – 2026.05_
 
-Delivered 20+ web projects for small businesses and agencies across
-e-commerce, marketing, and internal tools.
+Developed AI and software solutions for enterprise clients.
 
 
-- 20+ projects
-- E-commerce
-- Internal tools
+- RAG pipeline design
+- Multimodal document processing
+- Model quantization and deployment
+
+### Software Engineer — 58Tongcheng Information Technology Co., Ltd
+_2022.06 – 2025.05_
+
+Built AI-powered CRM tools serving 10,000+ sales staff. Designed intent 
+recognition, RAG, workflow, and MCP-based agent platforms.
+
+
+- 58CRM-Agent Platform
+- 58CRM-AI Assistant
+- Distributed Transaction Messaging Service
 
 ## Projects
 
-### [OpenDesk](https://opendesk.example.com)
-An open-source project management tool built with React and Go. 2.3k GitHub stars. Real-time updates via WebSockets.
+### Regulatory Reporting AI-assisted Testing System
+Designed for bank regulatory reporting test teams. Uses LLM and RAG to auto-generate test cases, SQL scripts, and test data. Handles frequent rule changes with intelligent assistance.
 
-**Tags:** React, Go, WebSockets, PostgreSQL
+**Tags:** Python, LLM, RAG, Chroma, PostgreSQL, QLoRA, Qwen, LangChain, LangGraph
 
-### [CodeLens](https://github.com/yourusername/codelens)
-VS Code extension that uses AI to generate inline documentation. 10k+ installs from the marketplace.
+### Enterprise Q&A RAG Intelligent System
+24/7 localized intelligent Q&A for internal employees, HR, and finance teams. Solves issues of scattered policy documents and inconsistent manual responses using multimodal RAG.
 
-**Tags:** TypeScript, OpenAI, VS Code API
+**Tags:** Python, LangChain, Qwen3-VL, AWQ, vLLM, MongoDB, PaddleOCR, Ragas
 
-### [PriceWatch](https://pricewatch.example.com)
-Browser extension that tracks price history on e-commerce sites and alerts users to drops.
+### 58CRM-Agent Platform
+One-stop agent development and runtime platform integrating intent recognition, RAG, workflow, MCP, and skills. Enables automated flow from intent to task execution.
 
-**Tags:** JavaScript, Chrome API, Node.js
+**Tags:** Python, Java, SpringBoot, SpringAI, LoRA, Qwen2.5, MCP, Redis, ES
 
-### [Logbook](https://github.com/yourusername/logbook)
-A minimalist journaling app with end-to-end encryption. Built in a weekend. 500+ users.
+### 58CRM-AI Assistant
+24/7 intelligent service for 10,000+ sales staff. Solves issues of inaccurate product recommendations, inconsistent scripts, and cumbersome queries.
 
-**Tags:** React Native, SQLite, Crypto
+**Tags:** Python, Java, RAG, ES, Dual-tower Model, MCP
+
+### 58CRM-Distributed Transaction Messaging Service
+Resolves cross-service data inconsistency in CRM system. Self-developed transaction messaging service based on TCC model achieving eventual consistency.
+
+**Tags:** Java, SpringBoot, MySQL, Redis
 
 ## Education
 
-**B.S. Computer Science** — University of California, Berkeley _(2014 – 2018)_
+**B.S. Computer Science and Technology** — Leshan Normal University _(2018 – 2022)_
 
 ## Certifications
 
@@ -89,4 +89,4 @@ A minimalist journaling app with end-to-end encryption. Built in a weekend. 500+
 
 ## Languages
 
-English (Native), Spanish (Conversational), Mandarin (Basic)
+Chinese (Native), English (Conversational)

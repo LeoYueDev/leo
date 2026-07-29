@@ -132,7 +132,7 @@ export function Contact() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Your Name"
+                  placeholder={t('ui.yourName')}
                   className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-primary/40 focus:border-primary/40 w-full rounded-xl border px-4 py-3 text-sm transition-colors focus:ring-1 focus:outline-none"
                 />
               </div>
@@ -149,7 +149,7 @@ export function Contact() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
+                  placeholder={t('ui.yourEmail')}
                   className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-primary/40 focus:border-primary/40 w-full rounded-xl border px-4 py-3 text-sm transition-colors focus:ring-1 focus:outline-none"
                 />
               </div>
@@ -199,7 +199,7 @@ export function Contact() {
             </button>
             {!hasEndpoint && (
               <p className="text-muted-foreground text-center text-xs">
-                Opens your email client with the message pre-filled.{' '}
+                {t('ui.opensEmailClient')}
                 <a
                   href={`mailto:${config.email}`}
                   className="text-primary underline-offset-2 hover:underline"
@@ -227,14 +227,14 @@ export function Contact() {
               <Mail size={15} />
               {config.email}
             </a>
-            {config.phone && (
+            {content.phone && (
               <a
-                href={`tel:${config.phone.replace(/\s/g, '')}`}
+                href={`tel:${content.phone.replace(/\s/g, '')}`}
                 className="border-border text-foreground hover:bg-secondary hover:border-primary/40 flex items-center gap-2.5 rounded-2xl border px-6 py-3 text-sm font-medium tracking-wide transition-all"
                 data-testid="link-contact-phone"
               >
                 <Phone size={15} />
-                {config.phone}
+                {content.phone}
               </a>
             )}
           </motion.div>

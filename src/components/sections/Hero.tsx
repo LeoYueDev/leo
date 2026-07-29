@@ -152,7 +152,7 @@ export function Hero() {
 
           {content.tagline && <TypewriterText text={content.tagline} />}
 
-          {(config.location || config.phone) && (
+          {(content.location || content.phone) && (
             <p className="text-muted-foreground mt-1 flex flex-wrap items-center justify-center gap-3 text-xs font-medium tracking-wider uppercase">
               {content.location && (
                 <span className="flex items-center gap-1.5">
@@ -160,16 +160,16 @@ export function Hero() {
                   {content.location}
                 </span>
               )}
-              {content.location && config.phone && (
+              {content.location && content.phone && (
                 <span className="opacity-30">·</span>
               )}
-              {config.phone && (
+              {content.phone && (
                 <a
-                  href={`tel:${config.phone.replace(/\s/g, '')}`}
+                  href={`tel:${content.phone.replace(/\s/g, '')}`}
                   className="hover:text-foreground flex items-center gap-1.5 transition-colors"
                 >
                   <Phone size={12} />
-                  {config.phone}
+                  {content.phone}
                 </a>
               )}
             </p>
