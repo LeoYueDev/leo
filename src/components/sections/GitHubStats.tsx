@@ -103,7 +103,7 @@ export function GitHubStats() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          {t('ui.ghStats')}
+          {t('ui.ghStatsEyebrow')}
         </motion.p>
         <div className="mb-14 flex flex-wrap items-start justify-between gap-4">
           <motion.h2

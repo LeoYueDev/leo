@@ -21,7 +21,7 @@ export function Education() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          {t('ui.educationHeading')}
+          {t('ui.educationEyebrow')}
         </motion.p>
         <motion.h2
           variants={fadeUp}

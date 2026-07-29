@@ -253,6 +253,9 @@ export interface LocaleUI {
   savePdf: string;
   summary: string;
   ghStats: string;
+  ghStatsEyebrow: string;
+  statsEyebrow: string;
+  educationEyebrow: string;
   bookChapter: string;
   workshop: string;
   communication: string;

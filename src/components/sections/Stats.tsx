@@ -74,7 +74,7 @@ export function Stats() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          {t('ui.stats')}
+          {t('ui.statsEyebrow')}
         </motion.p>
         <motion.h2
           variants={fadeUp}
