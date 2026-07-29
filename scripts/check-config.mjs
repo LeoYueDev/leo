@@ -145,12 +145,45 @@ if (!cfg.siteUrl) {
   pass("siteUrl", cfg.siteUrl);
 }
 
-// Identity
+// i18n
+console.log(D("\n── i18n ─────────────────────────────────────────────────────────────"));
+const HAS_LOCALE_BLOCKS = cfg.defaultLanguage !== undefined;
+
+if (HAS_LOCALE_BLOCKS) {
+  const langs = cfg.languages ?? [];
+  const langCodes = langs.map((l) => l.code);
+
+  if (!langCodes.includes(cfg.defaultLanguage)) {
+    fail("defaultLanguage", `"${cfg.defaultLanguage}" does not match any language in the languages list`);
+  } else {
+    pass("defaultLanguage", cfg.defaultLanguage);
+  }
+
+  if (langs.length === 0) {
+    fail("languages", "No languages defined — add at least one entry");
+  } else {
+    pass("languages", `${langs.length} language${langs.length !== 1 ? "s" : ""}`);
+  }
+
+  const defBlock = cfg[cfg.defaultLanguage];
+  if (!defBlock || typeof defBlock !== "object") {
+    fail(`${cfg.defaultLanguage}:`, `Locale block missing — add a "${cfg.defaultLanguage}:" section`);
+  } else {
+    console.log(D(`  ── ${cfg.defaultLanguage} locale ──`));
+    checkRequired(`${cfg.defaultLanguage}.name`,  defBlock.name,  "Your full name shown at the top of the portfolio");
+    checkRequired(`${cfg.defaultLanguage}.title`, defBlock.title, 'Your job title / headline e.g. "Full-Stack Engineer"');
+    checkEmail("email", cfg.email);
+  }
+} else {
+  warn("i18n", "Old config format detected — run  pnpm exec node scripts/migrate-config.mjs  to migrate");
+  checkRequired("name",      cfg.name,    "Your full name shown at the top of the portfolio");
+  checkRequired("title",     cfg.title,   'Your job title / headline e.g. "Full-Stack Engineer"');
+  checkRequired("tagline",   cfg.tagline, "One-line pitch shown below your name in the hero");
+  checkEmail("email", cfg.email);
+}
+
+// Identity (non-translatable)
 console.log(D("\n── Identity ─────────────────────────────────────────────────────────"));
-checkRequired("name",      cfg.name,    "Your full name shown at the top of the portfolio");
-checkRequired("title",     cfg.title,   'Your job title / headline e.g. "Full-Stack Engineer"');
-checkRequired("tagline",   cfg.tagline, "One-line pitch shown below your name in the hero");
-checkEmail("email", cfg.email);
 if (cfg.phone) {
   if (!/^[+\d\s()./-]{7,20}$/.test(cfg.phone)) {
     fail("phone", `"${cfg.phone}" doesn't look like a valid phone number`);
@@ -158,8 +191,6 @@ if (cfg.phone) {
     pass("phone", cfg.phone);
   }
 }
-if (cfg.location) pass("location", cfg.location);
-else warn("location", "Not set — location won't be displayed");
 checkBoolean("openToWork", cfg.openToWork);
 
 // Avatar placeholder check
@@ -209,21 +240,23 @@ if (s.website)  checkUrl("social.website",  s.website);
 // Content
 console.log(D("\n── Content ──────────────────────────────────────────────────────────"));
 
-if (!cfg.about) fail("about", "Empty — the About section will be blank");
-else pass("about", cfg.about.trim().slice(0, 55) + "…");
+const contentSource = HAS_LOCALE_BLOCKS ? (cfg[cfg.defaultLanguage] ?? {}) : cfg;
 
-const skills = cfg.skills || [];
+if (!contentSource.about) fail("about", "Empty — the About section will be blank");
+else pass("about", contentSource.about.trim().slice(0, 55) + "…");
+
+const skills = contentSource.skills || [];
 if (skills.length === 0) warn("skills", "No categories — Skills section will be empty");
 else {
   const total = skills.reduce((n, s) => n + (s.items?.length ?? 0), 0);
   pass("skills", `${skills.length} categories · ${total} items`);
 }
 
-const exp = cfg.experience || [];
+const exp = contentSource.experience || [];
 if (exp.length === 0) warn("experience", "No positions — Experience section will be empty");
 else pass("experience", `${exp.length} position${exp.length !== 1 ? "s" : ""}`);
 
-const projects = cfg.projects || [];
+const projects = contentSource.projects || [];
 if (projects.length === 0) warn("projects", "No entries — Projects section will be empty");
 else {
   const featured = projects.filter((p) => p.featured).length;
@@ -232,20 +265,20 @@ else {
   if (featured > 3)   warn("projects.featured", `${featured} featured projects — consider keeping to 3 max`);
 }
 
-const edu = cfg.education || [];
+const edu = contentSource.education || [];
 if (edu.length === 0) warn("education", "No entries — Education section will be hidden");
 else pass("education", `${edu.length} entr${edu.length !== 1 ? "ies" : "y"}`);
 
-const certs = cfg.certifications || [];
+const certs = contentSource.certifications || [];
 pass("certifications", `${certs.length} entr${certs.length !== 1 ? "ies" : "y"}`);
 
-const stats = cfg.stats || [];
+const stats = contentSource.stats || [];
 pass("stats", `${stats.length} entr${stats.length !== 1 ? "ies" : "y"}`);
 
-const pubs = cfg.publications || [];
+const pubs = contentSource.publications || [];
 pass("publications", `${pubs.length} entr${pubs.length !== 1 ? "ies" : "y"}`);
 
-const testimonials = cfg.testimonials || [];
+const testimonials = contentSource.testimonials || [];
 pass("testimonials", `${testimonials.length} entr${testimonials.length !== 1 ? "ies" : "y"}`);
 
 // Blog

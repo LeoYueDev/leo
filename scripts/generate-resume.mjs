@@ -23,6 +23,15 @@ const config = yaml.load(
   readFileSync(join(ROOT, "portfolio.config.yaml"), "utf8")
 );
 
+const args = process.argv.slice(2);
+const localeArg = args.find((arg) => arg.startsWith("--locale="))?.split("=")[1];
+
+let content = config;
+if (config.defaultLanguage && config[config.defaultLanguage]) {
+  const locale = localeArg && config[localeArg] ? localeArg : config.defaultLanguage;
+  content = { ...config, ...config[locale] };
+}
+
 // ── helpers ───────────────────────────────────────────────────────────────────
 
 /** Parse "2022 – Present"  →  { startDate: "2022", endDate: "" } */
@@ -59,27 +68,27 @@ function buildProfiles(social = {}) {
 const resume = {
   $schema: "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   basics: {
-    name:     config.name      ?? "",
-    label:    config.title     ?? "",
+    name:     content.name      ?? "",
+    label:    content.title     ?? "",
     image:    config.avatarUrl ?? "",
     email:    config.email     ?? "",
     phone:    config.phone     ?? "",
-    summary:  config.about     ?? "",
-    location: parseLocation(config.location),
+    summary:  content.about     ?? "",
+    location: parseLocation(content.location),
     profiles: buildProfiles(config.social),
   },
-  work: (config.experience ?? []).map((exp) => {
+  work: (content.experience ?? []).map((exp) => {
     const { startDate, endDate } = parsePeriod(exp.period);
     return { name: exp.company, position: exp.role, startDate, endDate, summary: exp.description, highlights: exp.highlights ?? [] };
   }),
-  education: (config.education ?? []).map((edu) => {
+  education: (content.education ?? []).map((edu) => {
     const { startDate, endDate } = parsePeriod(edu.period);
     return { institution: edu.institution, area: edu.degree, studyType: "", startDate, endDate };
   }),
-  skills:       (config.skills        ?? []).map((s) => ({ name: s.category, keywords: s.items ?? [] })),
-  projects:     (config.projects      ?? []).map((p) => ({ name: p.name, description: p.description, keywords: p.tags ?? [], url: p.liveUrl || p.repoUrl || "" })),
-  certificates: (config.certifications ?? []).map((c) => ({ name: c.title, issuer: c.issuer, date: c.date, url: c.credentialUrl || "" })),
-  languages:    (config.languages     ?? []).map((l) => ({ language: l.name, fluency: l.level })),
+  skills:       (content.skills        ?? []).map((s) => ({ name: s.category, keywords: s.items ?? [] })),
+  projects:     (content.projects      ?? []).map((p) => ({ name: p.name, description: p.description, keywords: p.tags ?? [], url: p.liveUrl || p.repoUrl || "" })),
+  certificates: (content.certifications ?? []).map((c) => ({ name: c.title, issuer: c.issuer, date: c.date, url: c.credentialUrl || "" })),
+  languages:    (content.languages     ?? []).map((l) => ({ language: l.name, fluency: l.level })),
 };
 
 // ── Markdown resume ───────────────────────────────────────────────────────────
@@ -89,11 +98,11 @@ const socialLinks = Object.entries(config.social ?? {})
   .map(([key, url]) => `[${key.charAt(0).toUpperCase() + key.slice(1)}](${url})`)
   .join(" · ");
 
-const skillsBlock = (config.skills ?? [])
+const skillsBlock = (content.skills ?? [])
   .map((s) => `**${s.category}:** ${s.items.join(", ")}`)
   .join("\n");
 
-const experienceBlock = (config.experience ?? [])
+const experienceBlock = (content.experience ?? [])
   .map((exp) =>
     `### ${exp.role} — ${exp.company}\n_${exp.period}_\n\n${exp.description}\n\n${
       exp.highlights?.length ? exp.highlights.map((h) => `- ${h}`).join("\n") : ""
@@ -101,7 +110,7 @@ const experienceBlock = (config.experience ?? [])
   )
   .join("\n\n");
 
-const projectsBlock = (config.projects ?? [])
+const projectsBlock = (content.projects ?? [])
   .map((p) => {
     const link  = p.liveUrl || p.repoUrl;
     const title = link ? `[${p.name}](${link})` : p.name;
@@ -109,33 +118,33 @@ const projectsBlock = (config.projects ?? [])
   })
   .join("\n\n");
 
-const educationBlock = (config.education ?? [])
+const educationBlock = (content.education ?? [])
   .map((edu) => `**${edu.degree}** — ${edu.institution} _(${edu.period})_`)
   .join("\n");
 
-const certsBlock = (config.certifications ?? [])
+const certsBlock = (content.certifications ?? [])
   .map((c) => {
     const link = c.credentialUrl ? ` ([verify](${c.credentialUrl}))` : "";
     return `- **${c.title}** — ${c.issuer}, ${c.date}${link}`;
   })
   .join("\n");
 
-const languagesBlock = (config.languages ?? [])
+const languagesBlock = (content.languages ?? [])
   .map((l) => `${l.name} (${l.level})`)
   .join(", ");
 
-const locationStr = config.location ? `${config.location} · ` : "";
+const locationStr = content.location ? `${content.location} · ` : "";
 const emailStr    = config.email    ? `${config.email} · `    : "";
 const phoneStr    = config.phone    ? `${config.phone} · `    : "";
 
-const markdown = `# ${config.name}
-**${config.title}**
+const markdown = `# ${content.name}
+**${content.title}**
 
 ${locationStr}${phoneStr}${emailStr}${socialLinks}
 
 ${config.openToWork ? "> **Open to new opportunities**\n\n" : ""}## Summary
 
-${config.about ?? ""}
+${content.about ?? ""}
 
 ## Skills
 
