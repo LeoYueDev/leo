@@ -11,6 +11,8 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { config } from '@/portfolio.config';
 import { ShareModal } from '@/components/ShareModal';
+import { useI18n } from '@/lib/i18n';
+import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
 
 interface NavbarProps {
   theme: string;
@@ -18,36 +20,24 @@ interface NavbarProps {
   topOffset: number;
 }
 
-const SECTION_LABELS: Record<string, string> = {
-  about: 'About',
-  stats: 'Stats',
-  skills: 'Skills',
-  languages: 'Languages',
-  experience: 'Experience',
-  projects: 'Projects',
-  education: 'Education',
-  certifications: 'Certifications',
-  publications: 'Publications',
-  testimonials: 'Testimonials',
-  contact: 'Contact',
-};
-
-const allNavLinks = config.sections
-  .filter((s) => s.show)
-  .map((s) => ({
-    label: SECTION_LABELS[s.id] ?? s.id,
-    href: `#${s.id}`,
-    id: s.id,
-  }));
-
-const MAX_PRIMARY = 5;
-const primaryLinks = allNavLinks.slice(0, MAX_PRIMARY);
-const moreLinks = allNavLinks.slice(MAX_PRIMARY);
-const sectionIds = allNavLinks.map((l) => l.id);
-
-const blogEnabled = config.blog?.enabled ?? false;
-
 export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
+  const { t } = useI18n();
+
+  const allNavLinks = config.sections
+    .filter((s) => s.show)
+    .map((s) => ({
+      label: t(`ui.${s.id}`),
+      href: `#${s.id}`,
+      id: s.id,
+    }));
+
+  const MAX_PRIMARY = 5;
+  const primaryLinks = allNavLinks.slice(0, MAX_PRIMARY);
+  const moreLinks = allNavLinks.slice(MAX_PRIMARY);
+  const sectionIds = allNavLinks.map((l) => l.id);
+
+  const blogEnabled = config.blog?.enabled ?? false;
+
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
@@ -204,7 +194,7 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
                     : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
                 }`}
               >
-                More
+{t('ui.more')}
                 <motion.span
                   animate={{ rotate: moreOpen ? 180 : 0 }}
                   transition={{ duration: 0.18 }}
@@ -251,7 +241,7 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
                         className="text-muted-foreground hover:text-foreground hover:bg-secondary flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium tracking-widest uppercase transition-colors"
                       >
                         <span className="h-1.5 w-1.5 flex-shrink-0" />
-                        Blog
+                        {t('ui.blog')}
                       </a>
                     )}
                   </motion.div>
@@ -260,19 +250,20 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
             </div>
           )}
 
-          {/* Blog link (when it fits directly) */}
+          {/* {t('ui.blog')} link (when it fits directly) */}
           {blogEnabled && moreLinks.length === 0 && (
             <a
               href="#/blog"
               className="text-muted-foreground hover:text-foreground hover:bg-secondary relative rounded-md px-3 py-2 text-xs font-medium tracking-widest whitespace-nowrap uppercase transition-colors"
             >
-              Blog
+              {t('ui.blog')}
             </a>
           )}
         </div>
 
         {/* Right actions */}
         <div className="flex flex-shrink-0 items-center gap-2">
+          <LanguageSwitcher />
           <button
             onClick={() => setShareOpen(true)}
             className="border-border hover:border-primary/40 bg-secondary/50 hover:bg-secondary text-muted-foreground hover:text-foreground rounded-full border p-2 transition-all"
@@ -323,7 +314,7 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
               data-testid="button-download-resume-nav"
             >
               <Download size={13} />
-              Resume
+              {t('ui.resume')}
             </a>
           ) : (
             <a
@@ -332,7 +323,7 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
               data-testid="button-download-resume-nav"
             >
               <Download size={13} />
-              Resume
+              {t('ui.resume')}
             </a>
           )}
 
@@ -409,7 +400,7 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
                   className="text-muted-foreground hover:text-foreground hover:bg-secondary flex items-center gap-2.5 rounded-md px-3 py-3 text-xs font-medium tracking-widest uppercase transition-colors"
                 >
                   <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" />
-                  Blog
+                  {t('ui.blog')}
                 </a>
               )}
               {config.resumeUrl ? (

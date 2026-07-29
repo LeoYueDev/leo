@@ -10,6 +10,7 @@ import { OpenToWorkBanner } from '@/components/OpenToWorkBanner';
 import { DemoBanner } from '@/components/DemoBanner';
 import { applyThemePalette, hexToPresetPalette } from '@/lib/themes';
 import { config } from '@/portfolio.config';
+import { I18nProvider } from '@/lib/i18n';
 
 const ResumePage = lazy(() =>
   import('@/pages/resume').then((m) => ({ default: m.ResumePage }))
@@ -111,59 +112,61 @@ function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <Router hook={useHashLocation}>
-        <Suspense fallback={null}>
-          <Switch>
-            {/* Blog routes — always accessible */}
-            <Route path="/blog/:slug">
-              {(params) => (
-                <BlogPostPage slug={(params as { slug: string }).slug ?? ''} />
-              )}
-            </Route>
-            <Route path="/blog">
-              <BlogListPage />
-            </Route>
+      <I18nProvider>
+        <Router hook={useHashLocation}>
+          <Suspense fallback={null}>
+            <Switch>
+              {/* Blog routes — always accessible */}
+              <Route path="/blog/:slug">
+                {(params) => (
+                  <BlogPostPage slug={(params as { slug: string }).slug ?? ''} />
+                )}
+              </Route>
+              <Route path="/blog">
+                <BlogListPage />
+              </Route>
 
-            {/* Resume page — always accessible */}
-            <Route path="/resume">
-              <CustomCursor />
-              <ResumePage theme={theme} onToggleTheme={toggleTheme} />
-            </Route>
+              {/* Resume page — always accessible */}
+              <Route path="/resume">
+                <CustomCursor />
+                <ResumePage theme={theme} onToggleTheme={toggleTheme} />
+              </Route>
 
-            {/* Setup wizard */}
-            <Route path="/setup">
-              <SetupPage />
-            </Route>
+              {/* Setup wizard */}
+              <Route path="/setup">
+                <SetupPage />
+              </Route>
 
-            {/* Demo portfolio — always accessible at #/demo */}
-            <Route path="/demo">
-              <PortfolioWithChrome
-                theme={theme}
-                toggleTheme={toggleTheme}
-                showDemoBanner={IS_DEMO}
-              />
-            </Route>
-
-            {/* Root — landing page or portfolio depending on siteMode */}
-            <Route>
-              {config.siteMode === 'landing' ? (
-                <LandingPage theme={theme} onToggleTheme={toggleTheme} />
-              ) : (
+              {/* Demo portfolio — always accessible at #/demo */}
+              <Route path="/demo">
                 <PortfolioWithChrome
                   theme={theme}
                   toggleTheme={toggleTheme}
                   showDemoBanner={IS_DEMO}
                 />
-              )}
-            </Route>
-          </Switch>
-        </Suspense>
-      </Router>
+              </Route>
 
-      {/* Global Chat Widget - Fixed to bottom right */}
-      <div className="fixed right-4 bottom-4 z-50">
-        <SimpleChat />
-      </div>
+              {/* Root — landing page or portfolio depending on siteMode */}
+              <Route>
+                {config.siteMode === 'landing' ? (
+                  <LandingPage theme={theme} onToggleTheme={toggleTheme} />
+                ) : (
+                  <PortfolioWithChrome
+                    theme={theme}
+                    toggleTheme={toggleTheme}
+                    showDemoBanner={IS_DEMO}
+                  />
+                )}
+              </Route>
+            </Switch>
+          </Suspense>
+        </Router>
+
+        {/* Global Chat Widget - Fixed to bottom right */}
+        <div className="fixed right-4 bottom-4 z-50">
+          <SimpleChat />
+        </div>
+      </I18nProvider>
     </MotionConfig>
   );
 }
