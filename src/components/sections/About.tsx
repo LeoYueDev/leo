@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Globe } from 'lucide-react';
 import { config } from '@/portfolio.config';
 import { fadeUpVariants } from '@/lib/animation';
+import { useI18n } from '@/lib/i18n';
 
 const fadeUp = fadeUpVariants(48, 0.8, 0.12);
 
@@ -104,9 +105,10 @@ function StatCard({
 // ── About section ───────────────────────────────────────────────────────────
 
 export function About() {
+  const { content, t } = useI18n();
   const ref = useRef<HTMLElement>(null);
 
-  const hasLanguages = config.languages && config.languages.length > 0;
+  const hasLanguages = content.languages && content.languages.length > 0;
 
   const stats =
     config.stats.length > 0
@@ -116,7 +118,7 @@ export function About() {
           { label: 'Projects Shipped', value: 20, prefix: '', suffix: '+' },
           {
             label: 'Technologies',
-            value: config.skills.reduce((acc, s) => acc + s.items.length, 0),
+            value: content.skills.reduce((acc, s) => acc + s.items.length, 0),
             prefix: '',
             suffix: '+',
           },
@@ -146,7 +148,7 @@ export function About() {
               viewport={{ once: true, margin: '-80px' }}
               className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
             >
-              About Me
+              {t('ui.aboutMe')}
             </motion.p>
             <motion.h2
               variants={fadeUp}
@@ -156,9 +158,7 @@ export function About() {
               viewport={{ once: true, margin: '-80px' }}
               className="section-heading text-foreground mb-6 text-4xl leading-tight md:text-5xl"
             >
-              The person behind
-              <br />
-              <em className="font-light not-italic">the keyboard.</em>
+              {t('ui.aboutHeading')}
             </motion.h2>
             <motion.div
               variants={fadeUp}
@@ -180,7 +180,7 @@ export function About() {
               viewport={{ once: true, margin: '-80px' }}
               className="text-muted-foreground text-base leading-relaxed font-light whitespace-pre-line"
             >
-              {config.about}
+              {content.about}
             </motion.p>
 
             {config.email && (
@@ -210,10 +210,10 @@ export function About() {
               >
                 <div className="text-muted-foreground mb-3 flex items-center gap-1.5 font-mono text-xs font-medium tracking-widest uppercase">
                   <Globe size={12} />
-                  Languages
+{t('ui.languages')}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {config.languages.map((lang) => (
+                  {content.languages.map((lang) => (
                     <span
                       key={lang.name}
                       className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium ${levelStyle(lang.level)}`}

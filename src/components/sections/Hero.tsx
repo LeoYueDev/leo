@@ -3,13 +3,15 @@ import { Download, MapPin, Phone, ArrowDown } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { config } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 
 function Avatar() {
+  const { content } = useI18n();
   if (config.avatarUrl) {
     return (
       <img
         src={config.avatarUrl}
-        alt={config.name}
+        alt={content.name}
         className="ring-primary/30 h-28 w-28 rounded-2xl object-cover ring-2"
         fetchPriority="high"
         loading="eager"
@@ -17,7 +19,7 @@ function Avatar() {
       />
     );
   }
-  const initials = config.name
+  const initials = content.name
     .split(' ')
     .map((n) => n[0])
     .join('')
@@ -68,6 +70,7 @@ function TypewriterText({ text }: { text: string }) {
 }
 
 export function Hero() {
+  const { content, t } = useI18n();
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -130,12 +133,12 @@ export function Hero() {
           {config.openToWork && (
             <span className="inline-flex items-center gap-1.5 rounded-full border border-green-500/20 bg-green-500/10 px-3 py-1 text-xs font-medium tracking-wide text-green-600 uppercase dark:text-green-400">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
-              Open to opportunities
+              {t('ui.openToOpportunities')}
             </span>
           )}
 
           <h1 className="text-foreground font-serif text-6xl leading-none font-light tracking-tight md:text-8xl">
-            {config.name.split(' ').map((word, i) => (
+            {content.name.split(' ').map((word, i) => (
               <span key={i} className={i === 1 ? 'italic' : ''}>
                 {i > 0 ? ' ' : ''}
                 {word}
@@ -144,20 +147,20 @@ export function Hero() {
           </h1>
 
           <p className="text-primary mt-1 text-sm font-medium tracking-[0.22em] uppercase">
-            {config.title}
+            {content.title}
           </p>
 
-          {config.tagline && <TypewriterText text={config.tagline} />}
+          {content.tagline && <TypewriterText text={content.tagline} />}
 
           {(config.location || config.phone) && (
             <p className="text-muted-foreground mt-1 flex flex-wrap items-center justify-center gap-3 text-xs font-medium tracking-wider uppercase">
-              {config.location && (
+              {content.location && (
                 <span className="flex items-center gap-1.5">
                   <MapPin size={12} />
-                  {config.location}
+                  {content.location}
                 </span>
               )}
-              {config.location && config.phone && (
+              {content.location && config.phone && (
                 <span className="opacity-30">·</span>
               )}
               {config.phone && (
@@ -228,7 +231,7 @@ export function Hero() {
             className="bg-primary text-primary-foreground rounded-xl px-7 py-3 text-sm font-medium tracking-wide transition-opacity hover:opacity-90"
             data-testid="button-view-work"
           >
-            View My Work
+            {t('ui.viewMyWork')}
           </a>
           <a
             href="#/resume"
@@ -236,7 +239,7 @@ export function Hero() {
             data-testid="button-view-resume"
           >
             <Download size={14} />
-            View Resume
+            {t('ui.viewResume')}
           </a>
         </motion.div>
       </motion.div>
@@ -253,7 +256,7 @@ export function Hero() {
             ?.scrollIntoView({ behavior: 'smooth' })
         }
         className="text-muted-foreground hover:text-foreground absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce rounded-full p-2 transition-colors"
-        aria-label="Scroll down"
+        aria-label={t('ui.scrollDown')}
         data-testid="button-scroll-down"
       >
         <ArrowDown size={18} />
