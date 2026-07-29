@@ -8,13 +8,15 @@ siteMode: "portfolio"
 siteUrl: "https://leoyuedev.github.io"
 showPoweredBy: true
 
-# ── Identity ─────────────────────────────────────────────────────────────
-name: "Leo Peng Yue"
-title: "AI Engineer"
-tagline: "I build free portfolios and resumes for everyone."
+# ── i18n ──────────────────────────────────────────────────────────────
+defaultLanguage: "en"
+languages:
+  - { code: "en", label: "English" }
+  - { code: "zh", label: "中文" }
+
+# ── Identity (non-translatable) ────────────────────────────────────────
 email: "leo.yue.dev@gmail.com"
 phone: "(+86)18780534052"
-location: "Chengdu, China"
 avatarUrl: "https://api.dicebear.com/9.x/fun-emoji/svg?seed=Alex&mouth[]=wideSmile&radius=12"
 
 # ── Status ─────────────────────────────────────────────────────────────
@@ -51,182 +53,6 @@ social:
   twitter:  ""
   website:  ""
 
-# ── About ──────────────────────────────────────────────────────────────
-about: |
-  Hi, I'm Leo — AI Engineer. I build production-grade LLM applications: RAG systems, AI Agents, and model fine-tuning.
-  I work across the full stack — from Python and LangChain on the AI side, to Java and SpringCloud on the backend.
-  What drives me is making AI actually reliable, observable, and maintainable in production.
-
-# ── Stats ──────────────────────────────────────────────────────────────
-stats:
-  - { label: "Years Experience", value: 4,    suffix: "+" }
-  - { label: "Projects Shipped", value: 20,   suffix: "+" }
-
-# ── Languages ──────────────────────────────────────────────────────────
-languages:
-  - { name: "Chinese", level: "Native" }
-  - { name: "English", level: "Conversational" }
-
-# ── Skills ─────────────────────────────────────────────────────────────
-skills:
-  - category: "LLM & Application"
-    items: [LangChain, LangGraph, RAG, AI Agent, MCP Protocol, Prompt Engineering]
-  - category: "Model & Training"
-    items: [PyTorch, Transformers, QLoRA, AWQ, Qwen, vLLM]
-  - category: "Backend & Architecture"
-    items: [Java, SpringCloud, Python, FastAPI, Microservices]
-  - category: "Infrastructure & Data"
-    items: [Docker, Redis, RabbitMQ, MySQL, PostgreSQL, MongoDB, Elasticsearch, Chroma, Milvus]
-
-# ── Experience ─────────────────────────────────────────────────────────
-experience:
-  - company: "NCS China"
-    role: "AI Engineer"
-    period: "2026.06 – Present"
-    description: |
-      Building AI-powered solutions for the banking sector. Focus on RAG systems,
-      LLM application engineering, and enterprise-grade AI infrastructure.
-    highlights:
-      - Regulatory Reporting AI-assisted Testing System
-      - Enterprise Q&A RAG Intelligent System
-
-  - company: "Northking Information Technology Co., Ltd (Chengdu)"
-    role: "Software Engineer"
-    period: "2025.05 – 2026.05"
-    description: |
-      Developed AI and software solutions for enterprise clients.
-    highlights:
-      - RAG pipeline design
-      - Multimodal document processing
-      - Model quantization and deployment
-
-  - company: "58Tongcheng Information Technology Co., Ltd"
-    role: "Software Engineer"
-    period: "2022.06 – 2025.05"
-    description: |
-      Built AI-powered CRM tools serving 10,000+ sales staff. Designed intent 
-      recognition, RAG, workflow, and MCP-based agent platforms.
-    highlights:
-      - 58CRM-Agent Platform
-      - 58CRM-AI Assistant
-      - Distributed Transaction Messaging Service
-
-# ── Projects ───────────────────────────────────────────────────────────
-projects:
-  - name: "Regulatory Reporting AI-assisted Testing System"
-    description: "Designed for bank regulatory reporting test teams. Uses LLM and RAG to auto-generate test cases, SQL scripts, and test data. Handles frequent rule changes with intelligent assistance."
-    tags: [Python, LLM, RAG, Chroma, PostgreSQL, QLoRA, Qwen, LangChain, LangGraph]
-    liveUrl: ""
-    repoUrl: ""
-    featured: true
-
-  - name: "Enterprise Q&A RAG Intelligent System"
-    description: "24/7 localized intelligent Q&A for internal employees, HR, and finance teams. Solves issues of scattered policy documents and inconsistent manual responses using multimodal RAG."
-    tags: [Python, LangChain, Qwen3-VL, AWQ, vLLM, MongoDB, PaddleOCR, Ragas]
-    liveUrl: ""
-    repoUrl: ""
-    featured: true
-
-  - name: "58CRM-Agent Platform"
-    description: "One-stop agent development and runtime platform integrating intent recognition, RAG, workflow, MCP, and skills. Enables automated flow from intent to task execution."
-    tags: [Python, Java, SpringBoot, SpringAI, LoRA, Qwen2.5, MCP, Redis, ES]
-    liveUrl: ""
-    repoUrl: ""
-    featured: false
-
-  - name: "58CRM-AI Assistant"
-    description: "24/7 intelligent service for 10,000+ sales staff. Solves issues of inaccurate product recommendations, inconsistent scripts, and cumbersome queries."
-    tags: [Python, Java, RAG, ES, Dual-tower Model, MCP]
-    liveUrl: ""
-    repoUrl: ""
-    featured: false
-
-  - name: "58CRM-Distributed Transaction Messaging Service"
-    description: "Resolves cross-service data inconsistency in CRM system. Self-developed transaction messaging service based on TCC model achieving eventual consistency."
-    tags: [Java, SpringBoot, MySQL, Redis]
-    liveUrl: ""
-    repoUrl: ""
-    featured: false
-
-# ── Education ──────────────────────────────────────────────────────────
-education:
-  - institution: "Leshan Normal University"
-    degree: "B.S. Computer Science and Technology"
-    period: "2018 – 2022"
-
-# ── Certifications ─────────────────────────────────────────────────────
-certifications:
-  - title: "AWS Certified Solutions Architect – Associate"
-    issuer: "Amazon Web Services"
-    date: "2023"
-    credentialUrl: "https://aws.amazon.com/verification"
-    badgeUrl: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
-    tags: [Cloud, Architecture, AWS]
-
-  - title: "Professional Scrum Master I"
-    issuer: "Scrum.org"
-    date: "2022"
-    credentialUrl: "https://www.scrum.org/certificates"
-    badgeUrl: "https://images.credly.com/size/340x340/images/a2790314-008a-4c3d-9e11-2a8f48155adc/image.png"
-    tags: [Agile, Scrum, Leadership]
-
-  - title: "Google Professional Data Engineer"
-    issuer: "Google Cloud"
-    date: "2021"
-    credentialUrl: ""
-    badgeUrl: ""
-    tags: [Data, GCP, BigQuery]
-
-# ── Publications ───────────────────────────────────────────────────────
-publications:
-  - title: "Scaling Real-Time Collaboration in Distributed Systems"
-    authors: "Rivera A, Chen L, Patel S"
-    venue: "USENIX ATC 2023"
-    year: "2023"
-    url: "https://arxiv.org/abs/example"
-    type: "conference"
-    tags: [distributed-systems, real-time, scalability]
-
-  - title: "Micro-Frontend Architecture Patterns for Large-Scale SPAs"
-    authors: "Rivera A"
-    venue: "IEEE Software"
-    year: "2022"
-    url: ""
-    type: "journal"
-    tags: [frontend, architecture, micro-frontends]
-
-# ── Testimonials ───────────────────────────────────────────────────────
-testimonials:
-  - name: "Sarah Chen"
-    title: "Engineering Manager"
-    company: "Acme Corp"
-    relationship: "Manager"
-    quote: |
-      Alex is one of the most thoughtful engineers I've had the pleasure of
-      working with. They consistently delivered high-quality work on time and
-      elevated the entire team's standards.
-    photoUrl: ""
-
-  - name: "James Okafor"
-    title: "Senior Product Designer"
-    company: "Startup XYZ"
-    relationship: "Colleague"
-    quote: |
-      Working with Alex was a joy. They have a rare ability to translate vague
-      product requirements into clean, elegant code. Our collaboration made the
-      product significantly better.
-    photoUrl: ""
-
-  - name: "Priya Nair"
-    title: "CTO"
-    company: "FinTech Ventures"
-    relationship: "Client"
-    quote: |
-      Alex delivered the project ahead of schedule and the code quality was
-      exceptional. They communicated proactively, flagged risks early, and were
-      genuinely invested in our success.
-    photoUrl: ""
-
 # ── Analytics ──────────────────────────────────────────────────────────
 # analytics:
 #   goatcounterCode: "yourcode"
@@ -236,3 +62,351 @@ blog:
   enabled: false
   title: "Blog"
   description: "Thoughts, stories and ideas — everything in one place."
+
+# ═══════════════════════════════════════════════════════════════════════
+#  ENGLISH LOCALE
+# ═══════════════════════════════════════════════════════════════════════
+en:
+  name: "Leo Peng Yue"
+  title: "AI Engineer"
+  tagline: "I build free portfolios and resumes for everyone."
+  location: "Chengdu, China"
+
+  about: |
+    Hi, I'm Leo — AI Engineer. I build production-grade LLM applications: RAG systems, AI Agents, and model fine-tuning.
+    I work across the full stack — from Python and LangChain on the AI side, to Java and SpringCloud on the backend.
+    What drives me is making AI actually reliable, observable, and maintainable in production.
+
+  resumeUrl: ""
+  resumeFileName: "resume.pdf"
+
+  stats:
+    - { label: "Years Experience", value: 4,    suffix: "+" }
+    - { label: "Projects Shipped", value: 20,   suffix: "+" }
+
+  languages:
+    - { name: "Chinese", level: "Native" }
+    - { name: "English", level: "Conversational" }
+
+  skills:
+    - category: "LLM & Application"
+      items: [LangChain, LangGraph, RAG, AI Agent, MCP Protocol, Prompt Engineering]
+    - category: "Model & Training"
+      items: [PyTorch, Transformers, QLoRA, AWQ, Qwen, vLLM]
+    - category: "Backend & Architecture"
+      items: [Java, SpringCloud, Python, FastAPI, Microservices]
+    - category: "Infrastructure & Data"
+      items: [Docker, Redis, RabbitMQ, MySQL, PostgreSQL, MongoDB, Elasticsearch, Chroma, Milvus]
+
+  experience:
+    - company: "NCS China"
+      role: "AI Engineer"
+      period: "2026.06 – Present"
+      description: |
+        Building AI-powered solutions for the banking sector. Focus on RAG systems,
+        LLM application engineering, and enterprise-grade AI infrastructure.
+      highlights:
+        - Regulatory Reporting AI-assisted Testing System
+        - Enterprise Q&A RAG Intelligent System
+
+    - company: "Northking Information Technology Co., Ltd (Chengdu)"
+      role: "Software Engineer"
+      period: "2025.05 – 2026.05"
+      description: |
+        Developed AI and software solutions for enterprise clients.
+      highlights:
+        - RAG pipeline design
+        - Multimodal document processing
+        - Model quantization and deployment
+
+    - company: "58Tongcheng Information Technology Co., Ltd"
+      role: "Software Engineer"
+      period: "2022.06 – 2025.05"
+      description: |
+        Built AI-powered CRM tools serving 10,000+ sales staff. Designed intent 
+        recognition, RAG, workflow, and MCP-based agent platforms.
+      highlights:
+        - 58CRM-Agent Platform
+        - 58CRM-AI Assistant
+        - Distributed Transaction Messaging Service
+
+  projects:
+    - name: "Regulatory Reporting AI-assisted Testing System"
+      description: "Designed for bank regulatory reporting test teams. Uses LLM and RAG to auto-generate test cases, SQL scripts, and test data. Handles frequent rule changes with intelligent assistance."
+      tags: [Python, LLM, RAG, Chroma, PostgreSQL, QLoRA, Qwen, LangChain, LangGraph]
+      liveUrl: ""
+      repoUrl: ""
+      featured: true
+
+    - name: "Enterprise Q&A RAG Intelligent System"
+      description: "24/7 localized intelligent Q&A for internal employees, HR, and finance teams. Solves issues of scattered policy documents and inconsistent manual responses using multimodal RAG."
+      tags: [Python, LangChain, Qwen3-VL, AWQ, vLLM, MongoDB, PaddleOCR, Ragas]
+      liveUrl: ""
+      repoUrl: ""
+      featured: true
+
+    - name: "58CRM-Agent Platform"
+      description: "One-stop agent development and runtime platform integrating intent recognition, RAG, workflow, MCP, and skills. Enables automated flow from intent to task execution."
+      tags: [Python, Java, SpringBoot, SpringAI, LoRA, Qwen2.5, MCP, Redis, ES]
+      liveUrl: ""
+      repoUrl: ""
+      featured: false
+
+    - name: "58CRM-AI Assistant"
+      description: "24/7 intelligent service for 10,000+ sales staff. Solves issues of inaccurate product recommendations, inconsistent scripts, and cumbersome queries."
+      tags: [Python, Java, RAG, ES, Dual-tower Model, MCP]
+      liveUrl: ""
+      repoUrl: ""
+      featured: false
+
+    - name: "58CRM-Distributed Transaction Messaging Service"
+      description: "Resolves cross-service data inconsistency in CRM system. Self-developed transaction messaging service based on TCC model achieving eventual consistency."
+      tags: [Java, SpringBoot, MySQL, Redis]
+      liveUrl: ""
+      repoUrl: ""
+      featured: false
+
+  education:
+    - institution: "Leshan Normal University"
+      degree: "B.S. Computer Science and Technology"
+      period: "2018 – 2022"
+
+  certifications:
+    - title: "AWS Certified Solutions Architect – Associate"
+      issuer: "Amazon Web Services"
+      date: "2023"
+      credentialUrl: "https://aws.amazon.com/verification"
+      badgeUrl: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
+      tags: [Cloud, Architecture, AWS]
+
+    - title: "Professional Scrum Master I"
+      issuer: "Scrum.org"
+      date: "2022"
+      credentialUrl: "https://www.scrum.org/certificates"
+      badgeUrl: "https://images.credly.com/size/340x340/images/a2790314-008a-4c3d-9e11-2a8f48155adc/image.png"
+      tags: [Agile, Scrum, Leadership]
+
+    - title: "Google Professional Data Engineer"
+      issuer: "Google Cloud"
+      date: "2021"
+      credentialUrl: ""
+      badgeUrl: ""
+      tags: [Data, GCP, BigQuery]
+
+  publications:
+    - title: "Scaling Real-Time Collaboration in Distributed Systems"
+      authors: "Rivera A, Chen L, Patel S"
+      venue: "USENIX ATC 2023"
+      year: "2023"
+      url: "https://arxiv.org/abs/example"
+      type: "conference"
+      tags: [distributed-systems, real-time, scalability]
+
+    - title: "Micro-Frontend Architecture Patterns for Large-Scale SPAs"
+      authors: "Rivera A"
+      venue: "IEEE Software"
+      year: "2022"
+      url: ""
+      type: "journal"
+      tags: [frontend, architecture, micro-frontends]
+
+  testimonials:
+    - name: "Sarah Chen"
+      title: "Engineering Manager"
+      company: "Acme Corp"
+      relationship: "Manager"
+      quote: |
+        Alex is one of the most thoughtful engineers I've had the pleasure of
+        working with. They consistently delivered high-quality work on time and
+        elevated the entire team's standards.
+      photoUrl: ""
+
+    - name: "James Okafor"
+      title: "Senior Product Designer"
+      company: "Startup XYZ"
+      relationship: "Colleague"
+      quote: |
+        Working with Alex was a joy. They have a rare ability to translate vague
+        product requirements into clean, elegant code. Our collaboration made the
+        product significantly better.
+      photoUrl: ""
+
+    - name: "Priya Nair"
+      title: "CTO"
+      company: "FinTech Ventures"
+      relationship: "Client"
+      quote: |
+        Alex delivered the project ahead of schedule and the code quality was
+        exceptional. They communicated proactively, flagged risks early, and were
+        genuinely invested in our success.
+      photoUrl: ""
+
+  ui:
+    about: "About"
+    stats: "Stats"
+    skills: "Skills"
+    languages: "Languages"
+    experience: "Experience"
+    projects: "Projects"
+    education: "Education"
+    certifications: "Certifications"
+    publications: "Publications"
+    testimonials: "Testimonials"
+    contact: "Contact"
+    more: "More"
+    blog: "Blog"
+    resume: "Resume"
+    downloadResume: "Download Resume"
+    openToOpportunities: "Open to opportunities"
+    viewMyWork: "View My Work"
+    viewResume: "View Resume"
+    scrollDown: "Scroll down"
+    aboutMe: "About Me"
+    aboutHeading: "A bit about myself"
+    toolbox: "My Toolbox"
+    skillsTitle: "Skills & Technologies"
+    careerPath: "Career Path"
+    experienceHeading: "Work Experience"
+    featuredWork: "Featured Work"
+    projectsHeading: "Projects I've Built"
+    viewProject: "View Project"
+    sourceCode: "Source Code"
+    educationHeading: "Education"
+    certificationsHeading: "Certifications"
+    publicationsHeading: "Publications"
+    conference: "Conference"
+    journal: "Journal"
+    preprint: "Preprint"
+    testimonialsHeading: "Testimonials"
+    getInTouch: "Get in Touch"
+    contactTitle: "Let's work\ntogether"
+    contactDescription: "Have a project in mind or just want to say hi? Drop me a message and I'll get back to you as soon as possible."
+    yourName: "Your Name"
+    yourEmail: "Your Email"
+    message: "Message"
+    messagePlaceholder: "Write your message..."
+    sendMessage: "Send Message"
+    sending: "Sending..."
+    openInEmailApp: "Open in Email App"
+    orEmailDirectly: "or email directly"
+    messageSent: "Message sent successfully!"
+    somethingWentWrong: "Something went wrong. Please try again."
+    sharePortfolio: "Share Portfolio"
+    builtWith: "Built with"
+    forkAndMakeYours: "Fork and make yours"
+    whatsNew: "What's new"
+    shareTitle: "Share this portfolio"
+    copyLink: "Copy link"
+    linkCopied: "Link copied!"
+    shareOn: "Share on"
+    copySectionLink: "Copy section link"
+    copied: "Copied!"
+    switchLanguage: "Switch language"
+    portfolio: "Portfolio"
+    twoColumn: "Two Column"
+    classic: "Classic"
+    share: "Share"
+    savePdf: "Save PDF"
+    summary: "Summary"
+    ghStats: "GitHub Stats"
+
+# ═══════════════════════════════════════════════════════════════════════
+#  中文 LOCALE (fill in translations below)
+# ═══════════════════════════════════════════════════════════════════════
+zh:
+  name: ""
+  title: ""
+  tagline: ""
+  location: ""
+
+  about: ""
+
+  resumeUrl: ""
+  resumeFileName: ""
+
+  stats: []
+
+  languages: []
+
+  skills: []
+
+  experience: []
+
+  projects: []
+
+  education: []
+
+  certifications: []
+
+  publications: []
+
+  testimonials: []
+
+  ui:
+    about: ""
+    stats: ""
+    skills: ""
+    languages: ""
+    experience: ""
+    projects: ""
+    education: ""
+    certifications: ""
+    publications: ""
+    testimonials: ""
+    contact: ""
+    more: ""
+    blog: ""
+    resume: ""
+    downloadResume: ""
+    openToOpportunities: ""
+    viewMyWork: ""
+    viewResume: ""
+    scrollDown: ""
+    aboutMe: ""
+    aboutHeading: ""
+    toolbox: ""
+    skillsTitle: ""
+    careerPath: ""
+    experienceHeading: ""
+    featuredWork: ""
+    projectsHeading: ""
+    viewProject: ""
+    sourceCode: ""
+    educationHeading: ""
+    certificationsHeading: ""
+    publicationsHeading: ""
+    conference: ""
+    journal: ""
+    preprint: ""
+    testimonialsHeading: ""
+    getInTouch: ""
+    contactTitle: ""
+    contactDescription: ""
+    yourName: ""
+    yourEmail: ""
+    message: ""
+    messagePlaceholder: ""
+    sendMessage: ""
+    sending: ""
+    openInEmailApp: ""
+    orEmailDirectly: ""
+    messageSent: ""
+    somethingWentWrong: ""
+    sharePortfolio: ""
+    builtWith: ""
+    forkAndMakeYours: ""
+    whatsNew: ""
+    shareTitle: ""
+    copyLink: ""
+    linkCopied: ""
+    shareOn: ""
+    copySectionLink: ""
+    copied: ""
+    switchLanguage: ""
+    portfolio: ""
+    twoColumn: ""
+    classic: ""
+    share: ""
+    savePdf: ""
+    summary: ""
+    ghStats: ""
