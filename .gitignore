@@ -4,3 +4,6 @@ dist/
 .env.*.local
 .DS_Store
 .replit-artifact/
+.idea/
+.codegraph/
+pnpm-workspace.yaml
