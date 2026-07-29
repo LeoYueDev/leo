@@ -9,7 +9,7 @@
  * Auto-runs before every build via the "build" npm script.
  */
 
-/* global console */
+/* global console, process */
 
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
 import { fileURLToPath } from "url";

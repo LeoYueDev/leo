@@ -8,7 +8,7 @@
  * Creates a backup at portfolio.config.yaml.bak before modifying.
  */
 
-/* global console */
+/* global console, process */
 
 import { readFileSync, writeFileSync, copyFileSync } from "fs";
 import { fileURLToPath } from "url";
