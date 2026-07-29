@@ -2,20 +2,22 @@ import { motion } from 'framer-motion';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { config } from '@/portfolio.config';
 import { fadeUpVariants } from '@/lib/animation';
+import { useI18n } from '@/lib/i18n';
 
 const fadeUp = fadeUpVariants(44, 0.75, 0.12);
 
-const TYPE_LABELS: Record<string, string> = {
-  journal: 'Journal',
-  conference: 'Conference',
-  preprint: 'Preprint',
-  'book-chapter': 'Book Chapter',
-  workshop: 'Workshop',
-};
-
 export function Publications() {
-  const pubs = config.publications ?? [];
+  const { content, t } = useI18n();
+  const pubs = content.publications ?? [];
   if (!pubs.length) return null;
+
+  const TYPE_LABELS: Record<string, string> = {
+    journal: t('ui.journal'),
+    conference: t('ui.conference'),
+    preprint: t('ui.preprint'),
+    'book-chapter': t('ui.bookChapter'),
+    workshop: t('ui.workshop'),
+  };
 
   return (
     <section id="publications" className="px-6 py-32">
@@ -28,7 +30,7 @@ export function Publications() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Research
+          {t('ui.publicationsHeading')}
         </motion.p>
         <motion.h2
           variants={fadeUp}
@@ -38,7 +40,7 @@ export function Publications() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-heading text-foreground mb-14 text-4xl md:text-5xl"
         >
-          Publications
+          {t('ui.publications')}
         </motion.h2>
 
         <div className="space-y-4">

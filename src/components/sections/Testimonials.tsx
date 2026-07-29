@@ -3,6 +3,7 @@ import { Quote } from 'lucide-react';
 import { config } from '@/portfolio.config';
 import type { Testimonial } from '@/portfolio.config';
 import { fadeUpVariants } from '@/lib/animation';
+import { useI18n } from '@/lib/i18n';
 
 const fadeUp = fadeUpVariants(36, 0.7, 0.1);
 
@@ -78,7 +79,8 @@ function TestimonialCard({ t, index }: { t: Testimonial; index: number }) {
 }
 
 export function Testimonials() {
-  if (!config.testimonials || config.testimonials.length === 0) return null;
+  const { content, t } = useI18n();
+  if (!content.testimonials || content.testimonials.length === 0) return null;
 
   return (
     <section id="testimonials" className="px-6 py-24">
@@ -91,7 +93,7 @@ export function Testimonials() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Testimonials
+          {t('ui.testimonials')}
         </motion.p>
         <motion.h2
           variants={fadeUp}
@@ -101,12 +103,12 @@ export function Testimonials() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-heading text-foreground mb-10 text-4xl md:text-5xl"
         >
-          What People Say
+          {t('ui.testimonialsHeading')}
         </motion.h2>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {config.testimonials.map((t, i) => (
-            <TestimonialCard key={`${t.name}-${i}`} t={t} index={i} />
+          {content.testimonials.map((item, i) => (
+            <TestimonialCard key={`${item.name}-${i}`} t={item} index={i} />
           ))}
         </div>
       </div>

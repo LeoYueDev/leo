@@ -2,11 +2,13 @@ import { motion } from 'framer-motion';
 import { Award, ExternalLink } from 'lucide-react';
 import { config } from '@/portfolio.config';
 import { fadeUpVariants } from '@/lib/animation';
+import { useI18n } from '@/lib/i18n';
 
 const fadeUp = fadeUpVariants(36, 0.7, 0.1);
 
 export function Certifications() {
-  if (!config.certifications || config.certifications.length === 0) return null;
+  const { content, t } = useI18n();
+  if (!content.certifications || content.certifications.length === 0) return null;
 
   return (
     <section id="certifications" className="px-6 py-24">
@@ -19,7 +21,7 @@ export function Certifications() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Certifications
+          {t('ui.certifications')}
         </motion.p>
         <motion.h2
           variants={fadeUp}
@@ -29,11 +31,11 @@ export function Certifications() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-heading text-foreground mb-10 text-4xl md:text-5xl"
         >
-          Credentials & Badges
+          {t('ui.certificationsHeading')}
         </motion.h2>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {config.certifications.map((cert, i) => (
+          {content.certifications.map((cert, i) => (
             <motion.div
               key={`${cert.title}-${i}`}
               variants={fadeUp}
