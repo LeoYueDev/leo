@@ -15,6 +15,7 @@ import { config } from '@/portfolio.config';
 import { ShareModal } from '@/components/ShareModal';
 import { ChangelogModal } from '@/components/ChangelogModal';
 import { fadeUpVariants } from '@/lib/animation';
+import { useI18n } from '@/lib/i18n';
 
 const fadeUp = fadeUpVariants(40, 0.75, 0.12);
 
@@ -27,13 +28,12 @@ export function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
+  const { content, t } = useI18n();
 
   const hasEndpoint = !!config.contactFormEndpoint;
-  const contactHeading = config.contactHeading ?? 'Get In Touch';
-  const contactTitle = config.contactTitle ?? 'Let’s work\ntogether.';
-  const contactDescription =
-    config.contactDescription ??
-    'Open to new opportunities. Whether you have a role in mind or just want to connect — my inbox is always open.';
+  const contactHeading = t('ui.getInTouch');
+  const contactTitle = t('ui.contactTitle');
+  const contactDescription = t('ui.contactDescription');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -124,7 +124,7 @@ export function Contact() {
                   htmlFor="contact-name"
                   className="text-muted-foreground text-xs font-medium tracking-wide"
                 >
-                  Your name
+                  {t('ui.yourName')}
                 </label>
                 <input
                   id="contact-name"
@@ -141,7 +141,7 @@ export function Contact() {
                   htmlFor="contact-email"
                   className="text-muted-foreground text-xs font-medium tracking-wide"
                 >
-                  Your email
+                  {t('ui.yourEmail')}
                 </label>
                 <input
                   id="contact-email"
@@ -159,7 +159,7 @@ export function Contact() {
                 htmlFor="contact-message"
                 className="text-muted-foreground text-xs font-medium tracking-wide"
               >
-                Message
+                {t('ui.message')}
               </label>
               <textarea
                 id="contact-message"
@@ -167,7 +167,7 @@ export function Contact() {
                 rows={5}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Tell me about your project or opportunity…"
+                placeholder={t('ui.messagePlaceholder')}
                 className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-primary/40 focus:border-primary/40 w-full resize-none rounded-xl border px-4 py-3 text-sm transition-colors focus:ring-1 focus:outline-none"
               />
             </div>
@@ -175,13 +175,13 @@ export function Contact() {
             {status === 'success' && (
               <div className="flex items-center gap-2 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-600 dark:text-green-400">
                 <CheckCircle size={16} className="shrink-0" />
-                Message sent! I&rsquo;ll get back to you soon.
+                {t('ui.messageSent')}
               </div>
             )}
             {status === 'error' && (
               <div className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400">
                 <AlertCircle size={16} className="shrink-0" />
-                Something went wrong — please try emailing directly.
+                {t('ui.somethingWentWrong')}
               </div>
             )}
 
@@ -192,10 +192,10 @@ export function Contact() {
             >
               <Send size={15} />
               {status === 'sending'
-                ? 'Sending…'
+                ? t('ui.sending')
                 : hasEndpoint
-                  ? 'Send message'
-                  : 'Open in email app'}
+                  ? t('ui.sendMessage')
+                  : t('ui.openInEmailApp')}
             </button>
             {!hasEndpoint && (
               <p className="text-muted-foreground text-center text-xs">
@@ -204,7 +204,7 @@ export function Contact() {
                   href={`mailto:${config.email}`}
                   className="text-primary underline-offset-2 hover:underline"
                 >
-                  Or email directly →
+                  {t('ui.orEmailDirectly')}
                 </a>
               </p>
             )}
@@ -302,7 +302,7 @@ export function Contact() {
               data-testid="button-download-resume-footer"
             >
               <Download size={14} />
-              Download Resume
+              {t('ui.downloadResume')}
             </a>
             <button
               onClick={() => setShareOpen(true)}
@@ -310,7 +310,7 @@ export function Contact() {
               data-testid="button-share-resume-footer"
             >
               <Share2 size={14} />
-              Share Portfolio
+              {t('ui.sharePortfolio')}
             </button>
           </motion.div>
 
@@ -326,7 +326,7 @@ export function Contact() {
             className="border-border/60 w-full border-t pt-8 text-center"
           >
             <p className="text-muted-foreground font-mono text-xs tracking-wide">
-              Built with{' '}
+              {t('ui.builtWith')}{' '}
               <a
                 href="https://github.com/git-vitae/git-vitae.github.io"
                 target="_blank"
@@ -335,14 +335,14 @@ export function Contact() {
               >
                 GitVitae
               </a>{' '}
-              &mdash; fork and make it yours.
+              &mdash; {t('ui.forkAndMakeYours')}
             </p>
             <button
               onClick={() => setChangelogOpen(true)}
               className="text-muted-foreground/60 hover:text-primary no-print mt-2 inline-flex items-center gap-1.5 text-[11px] transition-colors"
             >
               <Sparkles size={10} />
-              What's new in v1.3
+              {t('ui.whatsNew')}
             </button>
           </motion.div>
 

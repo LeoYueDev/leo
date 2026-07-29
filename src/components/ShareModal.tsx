@@ -8,6 +8,7 @@ import {
 import { Copy, CheckCircle, Download, Mail, QrCode, Link2 } from 'lucide-react';
 import { FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { config } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 import QRCodeLib from 'qrcode';
 
 interface ShareModalProps {
@@ -56,6 +57,7 @@ function CopyButton({
 export function ShareModal({ open, onClose }: ShareModalProps) {
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
   const [copyLinkDone, setCopyLinkDone] = useState(false);
+  const { t } = useI18n();
 
   const portfolioUrl =
     typeof window !== 'undefined'
@@ -111,7 +113,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
       <DialogContent className="max-h-[85vh] max-w-md overflow-hidden">
         <DialogHeader>
           <DialogTitle className="text-base font-medium">
-            Share your portfolio
+            {t('ui.shareTitle')}
           </DialogTitle>
         </DialogHeader>
 
@@ -128,7 +130,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
               <button
                 onClick={handleCopyLink}
                 className="hover:bg-background flex-shrink-0 rounded-lg p-1.5 transition-colors"
-                aria-label="Copy link"
+                aria-label={t('ui.copyLink')}
               >
                 {copyLinkDone ? (
                   <CheckCircle size={14} className="text-green-500" />
@@ -142,7 +144,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
           {/* ── Social share ───────────────────────────── */}
           <div>
             <p className="text-muted-foreground mb-2 font-mono text-xs tracking-widest uppercase">
-              Share on
+              {t('ui.shareOn')}
             </p>
             <div className="flex flex-wrap gap-2">
               <a

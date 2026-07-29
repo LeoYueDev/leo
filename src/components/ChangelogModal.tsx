@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, ExternalLink, RefreshCw } from 'lucide-react';
 import bundledChangelog from '../../CHANGELOG.md?raw';
+import { useI18n } from '@/lib/i18n';
 
 const CHANGELOG_URL =
   'https://raw.githubusercontent.com/git-vitae/git-vitae.github.io/main/CHANGELOG.md';
@@ -150,6 +151,7 @@ function useChangelog(open: boolean) {
 // ── Modal ──────────────────────────────────────────────────────────────────────
 export function ChangelogModal({ open, onClose }: Props) {
   const { md, refreshing } = useChangelog(open);
+  const { t } = useI18n();
 
   useEffect(() => {
     if (!open) return;
@@ -200,7 +202,7 @@ export function ChangelogModal({ open, onClose }: Props) {
                   id="changelog-title"
                   className="text-foreground text-sm font-semibold"
                 >
-                  What's new in GitVitae
+                  {t('ui.whatsNew')}
                 </span>
                 {refreshing && (
                   <RefreshCw
