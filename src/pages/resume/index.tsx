@@ -15,6 +15,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { config } from '@/portfolio.config';
 import { applyThemePalette, hexToPresetPalette } from '@/lib/themes';
 import { ShareModal } from '@/components/ShareModal';
+import { useI18n } from '@/lib/i18n';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -33,15 +34,16 @@ const isSectionVisible = (id: string) =>
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
 function ResumeHeader({ compact = false }: { compact?: boolean }) {
+  const { content } = useI18n();
   return (
     <div className={`${compact ? 'mb-4' : 'mb-8'}`}>
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="text-foreground font-serif text-3xl leading-none font-light tracking-tight">
-            {config.name}
+            {content.name}
           </h1>
           <p className="text-primary mt-1 text-sm font-medium tracking-[0.18em] uppercase">
-            {config.title}
+            {content.title}
           </p>
         </div>
 
@@ -55,9 +57,9 @@ function ResumeHeader({ compact = false }: { compact?: boolean }) {
               <Mail size={11} /> {config.email}
             </a>
           )}
-          {config.location && (
+          {content.location && (
             <span className="flex items-center gap-1">
-              <MapPin size={11} /> {config.location}
+              <MapPin size={11} /> {content.location}
             </span>
           )}
           {config.social.github && (
@@ -110,13 +112,14 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 function ExperienceBlock() {
-  if (!isSectionVisible('experience') || !config.experience?.length)
+  const { content, t } = useI18n();
+  if (!isSectionVisible('experience') || !content.experience?.length)
     return null;
   return (
     <div className="mb-6">
-      <SectionLabel>Experience</SectionLabel>
+      <SectionLabel>{t('ui.experience')}</SectionLabel>
       <div className="space-y-4">
-        {config.experience.map((job, i) => (
+        {content.experience.map((job, i) => (
           <div key={i} className="break-inside-avoid">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <div>
@@ -155,14 +158,15 @@ function ExperienceBlock() {
 }
 
 function ProjectsBlock({ condensed = false }: { condensed?: boolean }) {
-  if (!isSectionVisible('projects') || !config.projects?.length) return null;
+  const { content, t } = useI18n();
+  if (!isSectionVisible('projects') || !content.projects?.length) return null;
   const shown = condensed
-    ? config.projects.filter((p) => p.featured)
-    : config.projects;
+    ? content.projects.filter((p) => p.featured)
+    : content.projects;
   if (!shown.length) return null;
   return (
     <div className="mb-6">
-      <SectionLabel>Projects</SectionLabel>
+      <SectionLabel>{t('ui.projects')}</SectionLabel>
       <div className="space-y-3">
         {shown.map((proj, i) => (
           <div key={i} className="break-inside-avoid">
@@ -202,12 +206,13 @@ function ProjectsBlock({ condensed = false }: { condensed?: boolean }) {
 }
 
 function SkillsBlock() {
-  if (!isSectionVisible('skills') || !config.skills?.length) return null;
+  const { content, t } = useI18n();
+  if (!isSectionVisible('skills') || !content.skills?.length) return null;
   return (
     <div className="mb-5">
-      <SectionLabel>Skills</SectionLabel>
+      <SectionLabel>{t('ui.skills')}</SectionLabel>
       <div className="space-y-1.5">
-        {config.skills.map((cat) => (
+        {content.skills.map((cat) => (
           <div
             key={cat.category}
             className="flex gap-1.5 text-xs leading-relaxed"
@@ -226,12 +231,13 @@ function SkillsBlock() {
 }
 
 function EducationBlock() {
-  if (!isSectionVisible('education') || !config.education?.length) return null;
+  const { content, t } = useI18n();
+  if (!isSectionVisible('education') || !content.education?.length) return null;
   return (
     <div className="mb-5">
-      <SectionLabel>Education</SectionLabel>
+      <SectionLabel>{t('ui.education')}</SectionLabel>
       <div className="space-y-2">
-        {config.education.map((edu, i) => (
+        {content.education.map((edu, i) => (
           <div key={i} className="break-inside-avoid">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <span className="text-foreground text-xs font-semibold">
@@ -252,13 +258,14 @@ function EducationBlock() {
 }
 
 function CertificationsBlock() {
-  if (!isSectionVisible('certifications') || !config.certifications?.length)
+  const { content, t } = useI18n();
+  if (!isSectionVisible('certifications') || !content.certifications?.length)
     return null;
   return (
     <div className="mb-5">
-      <SectionLabel>Certifications</SectionLabel>
+      <SectionLabel>{t('ui.certifications')}</SectionLabel>
       <div className="space-y-1.5">
-        {config.certifications.map((cert, i) => (
+        {content.certifications.map((cert, i) => (
           <div key={i} className="flex break-inside-avoid items-start gap-2">
             <div className="min-w-0 flex-1">
               <span className="text-foreground block text-xs leading-tight font-medium">
@@ -279,12 +286,13 @@ function CertificationsBlock() {
 }
 
 function LanguagesBlock() {
-  if (!config.languages?.length) return null;
+  const { content, t } = useI18n();
+  if (!content.languages?.length) return null;
   return (
     <div className="mb-5">
-      <SectionLabel>Languages</SectionLabel>
+      <SectionLabel>{t('ui.languages')}</SectionLabel>
       <div className="space-y-1">
-        {config.languages.map((lang) => (
+        {content.languages.map((lang) => (
           <div
             key={lang.name}
             className="flex items-center justify-between text-xs"
@@ -299,11 +307,12 @@ function LanguagesBlock() {
 }
 
 function PublicationsBlock() {
-  const pubs = config.publications ?? [];
+  const { content, t } = useI18n();
+  const pubs = content.publications ?? [];
   if (!isSectionVisible('publications') || !pubs.length) return null;
   return (
     <div className="mb-6">
-      <SectionLabel>Publications</SectionLabel>
+      <SectionLabel>{t('ui.publications')}</SectionLabel>
       <div className="space-y-3">
         {pubs.map((pub, i) => (
           <div key={i} className="break-inside-avoid">
@@ -348,12 +357,13 @@ function PublicationsBlock() {
 }
 
 function AboutBlock() {
-  if (!isSectionVisible('about') || !config.about) return null;
+  const { content, t } = useI18n();
+  if (!isSectionVisible('about') || !content.about) return null;
   return (
     <div className="mb-6">
-      <SectionLabel>Summary</SectionLabel>
+      <SectionLabel>{t('ui.summary')}</SectionLabel>
       <p className="text-muted-foreground text-xs leading-relaxed">
-        {config.about}
+        {content.about}
       </p>
     </div>
   );
@@ -412,6 +422,7 @@ function ClassicLayout() {
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
+  const { t } = useI18n();
   const [layout, setLayout] = useState<Layout>(() => {
     return (localStorage.getItem('resume-layout') as Layout) ?? 'two-column';
   });
@@ -451,7 +462,7 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
           className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-xs font-medium transition-colors"
         >
           <ArrowLeft size={13} />
-          Portfolio
+          {t('ui.portfolio')}
         </a>
 
         {/* Layout switcher */}
@@ -467,7 +478,7 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
             }`}
           >
             <Columns2 size={13} />
-            <span className="hidden sm:inline">Two Column</span>
+            <span className="hidden sm:inline">{t('ui.twoColumn')}</span>
           </button>
           <button
             onClick={() => setAndStore('classic')}
@@ -480,7 +491,7 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
             }`}
           >
             <AlignJustify size={13} />
-            <span className="hidden sm:inline">Classic</span>
+            <span className="hidden sm:inline">{t('ui.classic')}</span>
           </button>
         </div>
 
@@ -492,14 +503,14 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
             className="border-border text-muted-foreground hover:text-foreground hover:border-primary/40 flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-medium transition-all"
           >
             <Share2 size={13} />
-            <span className="hidden sm:inline">Share</span>
+            <span className="hidden sm:inline">{t('ui.share')}</span>
           </button>
           <button
             onClick={() => window.print()}
             className="bg-primary text-primary-foreground flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-medium tracking-wide transition-opacity hover:opacity-90"
           >
             <Printer size={13} />
-            Save PDF
+            {t('ui.savePdf')}
           </button>
         </div>
       </div>

@@ -17,6 +17,7 @@ import { Testimonials } from '@/components/sections/Testimonials';
 import { Contact } from '@/components/sections/Contact';
 import { config } from '@/portfolio.config';
 import type { SectionId } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 
 interface PortfolioPageProps {
   theme: string;
@@ -47,6 +48,7 @@ function SectionWrapper({
   id: string;
   children: React.ReactNode;
 }) {
+  const { t } = useI18n();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -89,7 +91,7 @@ function SectionWrapper({
                 className="flex items-center gap-1.5 text-green-500"
               >
                 <Check size={11} strokeWidth={2.5} />
-                Copied!
+                {t('ui.copied')}
               </motion.span>
             ) : (
               <motion.span
@@ -101,7 +103,7 @@ function SectionWrapper({
                 className="flex items-center gap-1.5"
               >
                 <Link2 size={11} />
-                Copy link
+                {t('ui.copySectionLink')}
               </motion.span>
             )}
           </AnimatePresence>
