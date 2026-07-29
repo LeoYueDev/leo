@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { config } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 import { fadeUpVariants } from '@/lib/animation';
 
 const fadeUp = fadeUpVariants(40, 0.7, 0.1);
@@ -39,7 +40,8 @@ function ProficiencyDots({ level }: { level: string }) {
 }
 
 export function Languages() {
-  const langs = config.languages ?? [];
+  const { content, t } = useI18n();
+  const langs = content.languages ?? [];
   if (langs.length === 0) return null;
 
   return (
@@ -63,7 +65,7 @@ export function Languages() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-heading text-foreground mb-14 text-4xl md:text-5xl"
         >
-          Languages
+          {t('ui.languages')}
         </motion.h2>
 
         <div className="flex flex-wrap gap-4">

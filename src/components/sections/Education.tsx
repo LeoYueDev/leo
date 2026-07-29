@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 import { config } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 import { fadeUpVariants } from '@/lib/animation';
 
 const fadeUp = fadeUpVariants(36, 0.7, 0.12);
 
 export function Education() {
-  if (!config.education || config.education.length === 0) return null;
+  const { content, t } = useI18n();
+  if (!content.education || content.education.length === 0) return null;
 
   return (
     <section id="education" className="px-6 py-24">
@@ -19,7 +21,7 @@ export function Education() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Education
+          {t('ui.educationHeading')}
         </motion.p>
         <motion.h2
           variants={fadeUp}
@@ -29,11 +31,11 @@ export function Education() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-heading text-foreground mb-10 text-4xl md:text-5xl"
         >
-          Academic Background
+          {t('ui.educationHeading')}
         </motion.h2>
 
         <div className="flex flex-col gap-4">
-          {config.education.map((edu, i) => (
+          {content.education.map((edu, i) => (
             <motion.div
               key={`${edu.institution}-${i}`}
               variants={fadeUp}

@@ -7,6 +7,7 @@ import {
   useInView,
 } from 'framer-motion';
 import { config } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 import { fadeUpVariants } from '@/lib/animation';
 
 const fadeUp = fadeUpVariants(40, 0.7, 0.1);
@@ -58,7 +59,8 @@ function Counter({
 // ─── Section ──────────────────────────────────────────────────────────────────
 
 export function Stats() {
-  const stats = config.stats ?? [];
+  const { content, t } = useI18n();
+  const stats = content.stats ?? [];
   if (!stats.length) return null;
 
   return (
@@ -72,7 +74,7 @@ export function Stats() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          By the numbers
+          {t('ui.stats')}
         </motion.p>
         <motion.h2
           variants={fadeUp}
@@ -82,7 +84,7 @@ export function Stats() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-heading text-foreground mb-14 text-4xl md:text-5xl"
         >
-          At a Glance
+          {t('ui.stats')}
         </motion.h2>
 
         <div

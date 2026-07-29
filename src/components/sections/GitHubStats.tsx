@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { Star, Users, BookOpen, ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
 import { config } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 import { fadeUpVariants } from '@/lib/animation';
 import { useGitHubStats } from '@/hooks/useGitHubStats';
 
@@ -75,6 +76,7 @@ function Skeleton({ className }: { className?: string }) {
 // ── Section ────────────────────────────────────────────────────────────────────
 
 export function GitHubStats() {
+  const { t } = useI18n();
   const githubUrl = (config.social as Record<string, string>)?.github ?? '';
   const { data, loading, error } = useGitHubStats(githubUrl);
 
@@ -101,7 +103,7 @@ export function GitHubStats() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Open source
+          {t('ui.ghStats')}
         </motion.p>
         <div className="mb-14 flex flex-wrap items-start justify-between gap-4">
           <motion.h2
@@ -112,7 +114,7 @@ export function GitHubStats() {
             viewport={{ once: true, margin: '-80px' }}
             className="section-heading text-foreground text-4xl md:text-5xl"
           >
-            GitHub Activity
+            {t('ui.ghStats')}
           </motion.h2>
           {data && (
             <motion.a
