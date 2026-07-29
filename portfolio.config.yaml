@@ -323,111 +323,257 @@ en:
     topLanguages: "Top languages"
     rateLimited: "GitHub API rate limit reached — stats will appear on next load."
     opensEmailClient: "Opens your email client with the message pre-filled. "
+    portfolioLink: "Portfolio Link"
+    qrCode: "QR Code"
+    qrCodeHint: "Put this on your business card, LinkedIn banner, or conference badge."
+    downloadPng: "Download PNG"
+    emailSignature: "Email Signature"
+    copyHtml: "Copy HTML"
+    checkOutPortfolio: "Check out my portfolio 👋"
+    emailBody: "Hi,\n\nCheck out my portfolio:"
 
 # ═══════════════════════════════════════════════════════════════════════
 #  中文 LOCALE (fill in translations below)
 # ═══════════════════════════════════════════════════════════════════════
 zh:
-  name: ""
-  title: ""
-  tagline: ""
-  location: ""
-  phone: ""
+  name: "岳鹏"
+  title: "AI 工程师"
+  tagline: "我为每个人构建免费的简历和作品集。"
+  location: "中国 成都"
+  phone: "(+86)18780534052"
 
-  about: ""
+  about: |
+    你好，我是岳鹏 — AI 工程师。我构建生产级 LLM 应用：RAG 系统、AI Agent 和模型微调。
+    我覆盖全栈开发 — 从 AI 端的 Python 和 LangChain，到后端的 Java 和 SpringCloud。
+    驱动我的是让 AI 在生产环境中真正可靠、可观测、可维护。
 
   resumeUrl: ""
-  resumeFileName: ""
+  resumeFileName: "resume.pdf"
 
-  stats: []
+  stats:
+    - { label: "工作年限", value: 4, suffix: "+" }
+    - { label: "交付项目", value: 20, suffix: "+" }
 
-  languages: []
+  languages:
+    - { name: "中文", level: "母语" }
+    - { name: "英文", level: "日常交流" }
 
-  skills: []
+  skills:
+    - category: "LLM & 应用"
+      items: [LangChain, LangGraph, RAG, AI Agent, MCP 协议, 提示工程]
+    - category: "模型 & 训练"
+      items: [PyTorch, Transformers, QLoRA, AWQ, Qwen, vLLM]
+    - category: "后端 & 架构"
+      items: [Java, SpringCloud, Python, FastAPI, 微服务]
+    - category: "基础设施 & 数据"
+      items: [Docker, Redis, RabbitMQ, MySQL, PostgreSQL, MongoDB, Elasticsearch, Chroma, Milvus]
 
-  experience: []
+  experience:
+    - company: "NCS 中国"
+      role: "AI 工程师"
+      period: "2026.06 – 至今"
+      description: |
+        为银行业构建 AI 驱动的解决方案。专注于 RAG 系统、LLM 应用工程和企业级 AI 基础设施。
+      highlights:
+        - 监管报送 AI 辅助测试系统
+        - 企业问答 RAG 智能系统
 
-  projects: []
+    - company: "北信源信息技术有限公司（成都）"
+      role: "软件工程师"
+      period: "2025.05 – 2026.05"
+      description: |
+        为企业客户开发 AI 和软件解决方案。
+      highlights:
+        - RAG 流水线设计
+        - 多模态文档处理
+        - 模型量化与部署
 
-  education: []
+    - company: "五八同城信息技术有限公司"
+      role: "软件工程师"
+      period: "2022.06 – 2025.05"
+      description: |
+        构建服务 10,000+ 销售人员的 AI 驱动 CRM 工具。设计意图识别、RAG、工作流和基于 MCP 的 Agent 平台。
+      highlights:
+        - 58CRM-Agent 平台
+        - 58CRM-AI 助手
+        - 分布式事务消息服务
 
-  certifications: []
+  projects:
+    - name: "监管报送 AI 辅助测试系统"
+      description: "为银行监管报送测试团队设计。使用 LLM 和 RAG 自动生成测试用例、SQL 脚本和测试数据。通过智能辅助应对频繁的规则变更。"
+      tags: [Python, LLM, RAG, Chroma, PostgreSQL, QLoRA, Qwen, LangChain, LangGraph]
+      liveUrl: ""
+      repoUrl: ""
+      featured: true
 
-  publications: []
+    - name: "企业问答 RAG 智能系统"
+      description: "为内部员工、HR 和财务团队提供 7×24 小时本地化智能问答。使用多模态 RAG 解决政策文档分散和人工回复不一致的问题。"
+      tags: [Python, LangChain, Qwen3-VL, AWQ, vLLM, MongoDB, PaddleOCR, Ragas]
+      liveUrl: ""
+      repoUrl: ""
+      featured: true
 
-  testimonials: []
+    - name: "58CRM-Agent 平台"
+      description: "一站式 Agent 开发与运行平台，集成意图识别、RAG、工作流、MCP 和技能。实现从意图到任务执行的自动化流程。"
+      tags: [Python, Java, SpringBoot, SpringAI, LoRA, Qwen2.5, MCP, Redis, ES]
+      liveUrl: ""
+      repoUrl: ""
+      featured: false
+
+    - name: "58CRM-AI 助手"
+      description: "为 10,000+ 销售人员提供 7×24 小时智能服务。解决产品推荐不准确、话术不一致和查询繁琐的问题。"
+      tags: [Python, Java, RAG, ES, 双塔模型, MCP]
+      liveUrl: ""
+      repoUrl: ""
+      featured: false
+
+    - name: "58CRM-分布式事务消息服务"
+      description: "解决 CRM 系统中跨服务数据不一致问题。基于 TCC 模型自研事务消息服务，实现最终一致性。"
+      tags: [Java, SpringBoot, MySQL, Redis]
+      liveUrl: ""
+      repoUrl: ""
+      featured: false
+
+  education:
+    - institution: "乐山师范学院"
+      degree: "计算机科学与技术 学士"
+      period: "2018 – 2022"
+
+  certifications:
+    - title: "AWS 认证解决方案架构师 – 助理"
+      issuer: "Amazon Web Services"
+      date: "2023"
+      credentialUrl: "https://aws.amazon.com/verification"
+      badgeUrl: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
+      tags: [云计算, 架构, AWS]
+
+    - title: "Professional Scrum Master I"
+      issuer: "Scrum.org"
+      date: "2022"
+      credentialUrl: "https://www.scrum.org/certificates"
+      badgeUrl: "https://images.credly.com/size/340x340/images/a2790314-008a-4c3d-9e11-2a8f48155adc/image.png"
+      tags: [敏捷, Scrum, 领导力]
+
+    - title: "Google 专业数据工程师"
+      issuer: "Google Cloud"
+      date: "2021"
+      credentialUrl: ""
+      badgeUrl: ""
+      tags: [数据, GCP, BigQuery]
+
+  publications:
+    - title: "分布式系统中实时协作的扩展"
+      authors: "Rivera A, Chen L, Patel S"
+      venue: "USENIX ATC 2023"
+      year: "2023"
+      url: "https://arxiv.org/abs/example"
+      type: "conference"
+      tags: [分布式系统, 实时, 可扩展性]
+
+    - title: "大规模 SPA 的微前端架构模式"
+      authors: "Rivera A"
+      venue: "IEEE Software"
+      year: "2022"
+      url: ""
+      type: "journal"
+      tags: [前端, 架构, 微前端]
+
+  testimonials:
+    - name: "Sarah Chen"
+      title: "工程经理"
+      company: "Acme Corp"
+      relationship: "上级"
+      quote: |
+        Alex 是我合作过的最细心的工程师之一。他们始终按时交付高质量的工作，并提升了整个团队的标准。
+      photoUrl: ""
+
+    - name: "James Okafor"
+      title: "高级产品设计师"
+      company: "Startup XYZ"
+      relationship: "同事"
+      quote: |
+        与 Alex 合作非常愉快。他们有一种罕见的能力，能将模糊的产品需求转化为清晰优雅的代码。我们的合作让产品变得更好。
+      photoUrl: ""
+
+    - name: "Priya Nair"
+      title: "CTO"
+      company: "FinTech Ventures"
+      relationship: "客户"
+      quote: |
+        Alex 提前交付了项目，代码质量非常出色。他们主动沟通，及早标记风险，并真正投入到我们的成功中。
+      photoUrl: ""
 
   ui:
-    about: ""
-    stats: ""
-    skills: ""
-    languages: ""
-    experience: ""
-    projects: ""
-    education: ""
-    certifications: ""
-    publications: ""
-    testimonials: ""
-    contact: ""
-    more: ""
-    blog: ""
-    resume: ""
-    downloadResume: ""
-    openToOpportunities: ""
-    viewMyWork: ""
-    viewResume: ""
-    scrollDown: ""
-    aboutMe: ""
-    aboutHeading: ""
-    toolbox: ""
-    skillsTitle: ""
-    careerPath: ""
-    experienceHeading: ""
-    featuredWork: ""
-    projectsHeading: ""
-    viewProject: ""
-    sourceCode: ""
-    educationHeading: ""
-    certificationsHeading: ""
-    publicationsHeading: ""
-    conference: ""
-    journal: ""
-    preprint: ""
-    testimonialsHeading: ""
-    getInTouch: ""
-    contactTitle: ""
-    contactDescription: ""
-    yourName: ""
-    yourEmail: ""
-    message: ""
-    messagePlaceholder: ""
-    sendMessage: ""
-    sending: ""
-    openInEmailApp: ""
-    orEmailDirectly: ""
-    messageSent: ""
-    somethingWentWrong: ""
-    sharePortfolio: ""
-    builtWith: ""
-    forkAndMakeYours: ""
-    whatsNew: ""
-    shareTitle: ""
-    copyLink: ""
-    linkCopied: ""
-    shareOn: ""
-    copySectionLink: ""
-    copied: ""
-    switchLanguage: ""
-    portfolio: ""
-    twoColumn: ""
-    classic: ""
-    share: ""
-    savePdf: ""
-    summary: ""
-    ghStats: ""
-    ghStatsEyebrow: ""
-    statsEyebrow: ""
-    educationEyebrow: ""
+    about: "关于"
+    stats: "数据"
+    skills: "技能"
+    languages: "语言"
+    experience: "经历"
+    projects: "项目"
+    education: "教育"
+    certifications: "认证"
+    publications: "出版物"
+    testimonials: "推荐"
+    contact: "联系"
+    more: "更多"
+    blog: "博客"
+    resume: "简历"
+    downloadResume: "下载简历"
+    openToOpportunities: "开放机会"
+    viewMyWork: "查看我的作品"
+    viewResume: "查看简历"
+    scrollDown: "向下滚动"
+    aboutMe: "关于我"
+    aboutHeading: "一点关于我自己"
+    toolbox: "我的工具箱"
+    skillsTitle: "技能与技术"
+    careerPath: "职业路径"
+    experienceHeading: "工作经历"
+    featuredWork: "精选作品"
+    projectsHeading: "我做的项目"
+    viewProject: "查看项目"
+    sourceCode: "源代码"
+    educationHeading: "教育背景"
+    certificationsHeading: "认证证书"
+    publicationsHeading: "出版物"
+    conference: "会议"
+    journal: "期刊"
+    preprint: "预印本"
+    testimonialsHeading: "推荐语"
+    getInTouch: "保持联系"
+    contactTitle: "让我们一起\n合作"
+    contactDescription: "有项目想法或只是想打个招呼？给我发条消息，我会尽快回复你。"
+    yourName: "你的名字"
+    yourEmail: "你的邮箱"
+    message: "消息"
+    messagePlaceholder: "写下你的消息..."
+    sendMessage: "发送消息"
+    sending: "发送中..."
+    openInEmailApp: "在邮件应用中打开"
+    orEmailDirectly: "或直接发送邮件"
+    messageSent: "消息发送成功！"
+    somethingWentWrong: "出现错误，请重试。"
+    sharePortfolio: "分享作品集"
+    builtWith: "构建于"
+    forkAndMakeYours: "复制并打造你的版本"
+    whatsNew: "新功能"
+    shareTitle: "分享这个作品集"
+    copyLink: "复制链接"
+    linkCopied: "链接已复制！"
+    shareOn: "分享到"
+    copySectionLink: "复制章节链接"
+    copied: "已复制！"
+    switchLanguage: "切换语言"
+    portfolio: "作品集"
+    twoColumn: "双栏"
+    classic: "经典"
+    share: "分享"
+    savePdf: "保存 PDF"
+    summary: "摘要"
+    ghStats: "GitHub 统计"
+    ghStatsEyebrow: "开源"
+    statsEyebrow: "数字说话"
+    educationEyebrow: "教育"
     bookChapter: "书籍章节"
     workshop: "研讨会"
     communication: "语言能力"
@@ -438,3 +584,11 @@ zh:
     topLanguages: "常用语言"
     rateLimited: "GitHub API 请求已超限——统计数据将在下次加载时显示。"
     opensEmailClient: "打开您的邮件客户端并预填消息。"
+    portfolioLink: "作品集链接"
+    qrCode: "二维码"
+    qrCodeHint: "将此二维码放在名片、LinkedIn 横幅或会议徽章上。"
+    downloadPng: "下载 PNG"
+    emailSignature: "邮件签名"
+    copyHtml: "复制 HTML"
+    checkOutPortfolio: "看看我的作品集 👋"
+    emailBody: "你好，\n\n看看我的作品集："

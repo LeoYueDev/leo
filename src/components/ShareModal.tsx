@@ -19,7 +19,7 @@ interface ShareModalProps {
 function CopyButton({
   text,
   label,
-  copiedLabel = 'Copied!',
+  copiedLabel,
   compact = false,
 }: {
   text: string;
@@ -90,8 +90,8 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
   };
 
   const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(portfolioUrl)}`;
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out my portfolio 👋`)}&url=${encodeURIComponent(portfolioUrl)}`;
-  const emailUrl = `mailto:?subject=${encodeURIComponent(`${content.name}'s Portfolio`)}&body=${encodeURIComponent(`Hi,\n\nCheck out my portfolio:\n${portfolioUrl}`)}`;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(t('ui.checkOutPortfolio'))}&url=${encodeURIComponent(portfolioUrl)}`;
+  const emailUrl = `mailto:?subject=${encodeURIComponent(`${content.name} - ${t('ui.portfolioLink')}`)}&body=${encodeURIComponent(`${t('ui.emailBody')}\n${portfolioUrl}`)}`;
 
   const emailSignature = [
     `<table cellpadding="0" cellspacing="0" style="font-family:Arial,sans-serif;font-size:14px;color:#333333;">`,
@@ -100,7 +100,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
     content.location
       ? `  <tr><td style="color:#666666;padding-bottom:6px;">${content.location}</td></tr>`
       : '',
-    `  <tr><td><a href="${portfolioUrl}" style="color:#6366f1;text-decoration:none;">🌐 Portfolio</a>${config.email ? ` &nbsp;·&nbsp; <a href="mailto:${config.email}" style="color:#6366f1;text-decoration:none;">${config.email}</a>` : ''}</td></tr>`,
+    `  <tr><td><a href="${portfolioUrl}" style="color:#6366f1;text-decoration:none;">🌐 ${t('ui.portfolio')}</a>${config.email ? ` &nbsp;·&nbsp; <a href="mailto:${config.email}" style="color:#6366f1;text-decoration:none;">${config.email}</a>` : ''}</td></tr>`,
     `</table>`,
   ]
     .filter(Boolean)
@@ -121,7 +121,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
           {/* ── Portfolio link ─────────────────────────── */}
           <div>
             <p className="text-muted-foreground mb-2 flex items-center gap-1.5 font-mono text-xs tracking-widest uppercase">
-              <Link2 size={11} /> Portfolio link
+              <Link2 size={11} /> {t('ui.portfolioLink')}
             </p>
             <div className="bg-secondary border-border flex items-center gap-2 rounded-xl border px-3 py-2.5">
               <span className="text-foreground flex-1 truncate font-mono text-xs">
@@ -175,7 +175,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
           {/* ── QR Code ────────────────────────────────── */}
           <div>
             <p className="text-muted-foreground mb-2 flex items-center gap-1.5 font-mono text-xs tracking-widest uppercase">
-              <QrCode size={11} /> QR code
+              <QrCode size={11} /> {t('ui.qrCode')}
             </p>
             <div className="bg-secondary border-border flex items-center gap-4 rounded-xl border p-3">
               {qrDataUrl ? (
@@ -189,15 +189,14 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
               )}
               <div className="flex flex-col gap-2">
                 <p className="text-muted-foreground text-xs leading-relaxed">
-                  Put this on your business card, LinkedIn banner, or conference
-                  badge.
+                  {t('ui.qrCodeHint')}
                 </p>
                 <button
                   onClick={downloadQR}
                   disabled={!qrDataUrl}
                   className="border-border hover:bg-background hover:border-primary/40 flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-all disabled:opacity-40"
                 >
-                  <Download size={12} /> Download PNG
+                  <Download size={12} /> {t('ui.downloadPng')}
                 </button>
               </div>
             </div>
@@ -205,7 +204,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
 
           <div>
             <p className="text-muted-foreground mb-2 flex items-center gap-1.5 font-mono text-xs tracking-widest uppercase">
-              <Mail size={11} /> Email signature
+              <Mail size={11} /> {t('ui.emailSignature')}
             </p>
             <div className="bg-secondary border-border rounded-xl border p-3">
               <div className="bg-background border-border/60 mb-2.5 rounded-lg border p-2.5 text-xs">
@@ -221,10 +220,10 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
                   className="text-primary"
                   onClick={(e) => e.preventDefault()}
                 >
-                  🌐 Portfolio
+                  🌐 {t('ui.portfolio')}
                 </a>
               </div>
-              <CopyButton text={emailSignature} label="Copy HTML" />
+              <CopyButton text={emailSignature} label={t('ui.copyHtml')} copiedLabel={t('ui.copied')} />
             </div>
           </div>
         </div>

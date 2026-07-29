@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { X, Mail } from 'lucide-react';
 import { config } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 
 interface OpenToWorkBannerProps {
   onDismiss: () => void;
@@ -13,6 +14,7 @@ export function OpenToWorkBanner({
   topOffset = 0,
 }: OpenToWorkBannerProps) {
   const [dismissed, setDismissed] = useState(false);
+  const { content } = useI18n();
 
   if (!config.openToWork) return null;
 
@@ -48,7 +50,7 @@ export function OpenToWorkBanner({
           </span>
 
           <a
-            href={`mailto:${config.email}?subject=Opportunity for ${config.name}`}
+            href={`mailto:${config.email}?subject=Opportunity for ${content.name}`}
             className="bg-primary-foreground/15 hover:bg-primary-foreground/25 border-primary-foreground/20 ml-1 flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-semibold tracking-widest whitespace-nowrap uppercase transition-colors"
           >
             <Mail size={11} />

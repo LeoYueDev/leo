@@ -21,7 +21,7 @@ interface NavbarProps {
 }
 
 export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
-  const { t } = useI18n();
+  const { t, content } = useI18n();
 
   const allNavLinks = config.sections
     .filter((s) => s.show)
@@ -136,9 +136,9 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
           data-testid="nav-logo"
         >
           {(() => {
-            const first = config.name.split(' ')[0];
+            const first = content.name.split(' ')[0];
             return first.length > 8
-              ? config.name
+              ? content.name
                   .split(' ')
                   .map((w) => w[0])
                   .join('')
@@ -306,10 +306,10 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
             </AnimatePresence>
           </button>
 
-          {config.resumeUrl ? (
+          {content.resumeUrl ? (
             <a
-              href={config.resumeUrl}
-              download={config.resumeFileName || 'resume.pdf'}
+              href={content.resumeUrl}
+              download={content.resumeFileName || 'resume.pdf'}
               className="bg-primary text-primary-foreground hidden items-center gap-2 rounded-full px-4 py-2 text-xs font-medium tracking-widest uppercase transition-opacity hover:opacity-90 md:flex"
               data-testid="button-download-resume-nav"
             >
@@ -403,10 +403,10 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
                   {t('ui.blog')}
                 </a>
               )}
-              {config.resumeUrl ? (
+              {content.resumeUrl ? (
                 <a
-                  href={config.resumeUrl}
-                  download={config.resumeFileName || 'resume.pdf'}
+                  href={content.resumeUrl}
+                  download={content.resumeFileName || 'resume.pdf'}
                   className="text-primary hover:bg-accent flex items-center gap-2 rounded-md px-3 py-3 text-xs font-medium tracking-widest uppercase transition-colors"
                 >
                   <Download size={13} /> {t('ui.downloadResume')}

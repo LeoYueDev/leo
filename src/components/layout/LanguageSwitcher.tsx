@@ -5,7 +5,7 @@ import { config } from '@/portfolio.config';
 import { useI18n } from '@/lib/i18n';
 
 export function LanguageSwitcher() {
-  const { locale, setLocale } = useI18n();
+  const { locale, setLocale, t } = useI18n();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -24,7 +24,7 @@ export function LanguageSwitcher() {
       <button
         onClick={() => setOpen((o) => !o)}
         className="border-border hover:border-primary/40 bg-secondary/50 hover:bg-secondary text-muted-foreground hover:text-foreground rounded-full border p-2 transition-all"
-        aria-label="Switch language"
+        aria-label={t('ui.switchLanguage')}
       >
         <Globe size={16} />
       </button>

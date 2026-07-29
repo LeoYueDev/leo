@@ -111,8 +111,8 @@ export function About() {
   const hasLanguages = content.languages && content.languages.length > 0;
 
   const stats =
-    config.stats.length > 0
-      ? config.stats.slice(0, 4)
+    content.stats.length > 0
+      ? content.stats.slice(0, 4)
       : [
           { label: 'Years Experience', value: 5, prefix: '', suffix: '+' },
           { label: 'Projects Shipped', value: 20, prefix: '', suffix: '+' },

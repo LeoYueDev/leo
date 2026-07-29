@@ -25,21 +25,23 @@ function detectInitialLocale(): string {
   return FALLBACK_LOCALE;
 }
 
+const fallbackContent = getContent(FALLBACK_LOCALE);
+
 function resolveNested(obj: Record<string, any>, path: string): string {
   const keys = path.split('.');
   let current: any = obj;
   for (const key of keys) {
-    if (current == null || typeof current !== 'object') return path;
+    if (current == null || typeof current !== 'object') return '';
     current = current[key];
   }
-  return typeof current === 'string' ? current : path;
+  return typeof current === 'string' ? current : '';
 }
 
 export const I18nContext = createContext<I18nContextType>({
   locale: FALLBACK_LOCALE,
   setLocale: () => {},
   t: (key: string) => key,
-  content: {} as LocaleContent,
+  content: fallbackContent,
 });
 
 export function I18nProvider({ children }: { children: ReactNode }) {
@@ -54,7 +56,9 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   const t = useCallback(
     (key: string): string => {
-      return resolveNested(content as unknown as Record<string, any>, key);
+      const val = resolveNested(content as unknown as Record<string, any>, key);
+      if (val) return val;
+      return resolveNested(fallbackContent as unknown as Record<string, any>, key) || key;
     },
     [content]
   );

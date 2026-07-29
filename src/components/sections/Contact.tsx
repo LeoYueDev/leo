@@ -296,8 +296,8 @@ export function Contact() {
             className="flex flex-wrap items-center justify-center gap-3"
           >
             <a
-              href={config.resumeUrl}
-              download={config.resumeFileName}
+              href={content.resumeUrl}
+              download={content.resumeFileName}
               className="border-border text-foreground hover:bg-secondary hover:border-primary/40 flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-all"
               data-testid="button-download-resume-footer"
             >

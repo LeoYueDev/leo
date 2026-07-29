@@ -266,6 +266,14 @@ export interface LocaleUI {
   topLanguages: string;
   rateLimited: string;
   opensEmailClient: string;
+  portfolioLink: string;
+  qrCode: string;
+  qrCodeHint: string;
+  downloadPng: string;
+  emailSignature: string;
+  copyHtml: string;
+  checkOutPortfolio: string;
+  emailBody: string;
 }
 
 export interface LocaleContent {
@@ -325,7 +333,33 @@ export const config = {
   languages: (rawConfig.languages ?? [{ code: 'en', label: 'English' }]) as LanguageEntry[],
 };
 
+function deepMerge(fallback: any, current: any): any {
+  if (current === undefined || current === null) return fallback;
+  if (typeof fallback !== 'object' || fallback === null) return current;
+  if (Array.isArray(fallback)) {
+    return Array.isArray(current) && current.length > 0 ? current : fallback;
+  }
+
+  const result: any = {};
+  for (const key of Object.keys(fallback)) {
+    const currentVal = current[key];
+    if (currentVal === undefined || currentVal === null || currentVal === '') {
+      result[key] = fallback[key];
+    } else if (Array.isArray(currentVal)) {
+      result[key] = currentVal.length > 0 ? currentVal : fallback[key];
+    } else if (typeof currentVal === 'object') {
+      result[key] = deepMerge(fallback[key], currentVal);
+    } else {
+      result[key] = currentVal;
+    }
+  }
+  return result;
+}
+
 export function getContent(locale: string): LocaleContent {
   const raw = rawConfigYaml as unknown as Record<string, any>;
-  return raw[locale] ?? raw[rawConfig.defaultLanguage ?? 'en'];
+  const fallback = raw[rawConfig.defaultLanguage ?? 'en'] ?? {};
+  const current = raw[locale] ?? {};
+
+  return deepMerge(fallback, current) as LocaleContent;
 }

@@ -9,6 +9,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Progress } from '@/components/ui/progress';
 import { config } from '@/portfolio.config';
+import { useI18n } from '@/lib/i18n';
 import {
   webLLMService,
   type ChatMessage,
@@ -16,8 +17,9 @@ import {
 } from '@/lib/webllm';
 
 export function SimpleChat() {
+  const { content } = useI18n();
   const MAX_CONVERSATION_PAIRS = 5; // Keep last 5 user/assistant exchanges
-  const greetingText = `Hi! I'm ${config.name}'s AI representative. Ask me anything about their experience, skills, or projects!`;
+  const greetingText = `Hi! I'm ${content.name}'s AI representative. Ask me anything about their experience, skills, or projects!`;
   
   const [messages, setMessages] = React.useState<ChatMessage[]>([
     {
@@ -319,7 +321,7 @@ export function SimpleChat() {
                 ? 'AI unavailable...'
                 : webLLMStatus.status === 'loading'
                   ? 'Loading AI model...'
-                  : `Ask about ${config.name}'s experience...`
+                  : `Ask about ${content.name}'s experience...`
             }
             value={input}
             onChange={(e) => setInput(e.target.value)}

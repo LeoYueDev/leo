@@ -31,7 +31,7 @@ import '@fontsource/jetbrains-mono/latin-400.css';
 import '@fontsource/jetbrains-mono/latin-500.css';
 
 import './index.css';
-import { config } from './portfolio.config';
+import { config, getContent } from './portfolio.config';
 
 // ── Dynamic favicon from name initials ────────────────────────────────────────
 function setInitialsFavicon(name: string, color: string) {
@@ -65,7 +65,8 @@ const faviconColor =
     ?.primary ||
   '#374151';
 
-setInitialsFavicon(config.name, faviconColor);
+const defaultContent = getContent(config.defaultLanguage);
+setInitialsFavicon(defaultContent.name, faviconColor);
 
 // ── GoatCounter analytics (opt-in) ────────────────────────────────────────────
 // Free, privacy-respecting, cookie-free. See: https://www.goatcounter.com
