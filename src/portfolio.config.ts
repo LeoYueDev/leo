@@ -30,7 +30,6 @@ const rawConfig = rawConfigYaml as unknown as {
   sections: { id: string; show: boolean }[];
   about: string;
   stats: { label: string; value: number; prefix?: string; suffix?: string }[];
-  languages: { name: string; level: string }[];
   skills: { category: string; items: string[] }[];
   experience: {
     company: string;
@@ -88,6 +87,9 @@ const rawConfig = rawConfigYaml as unknown as {
     title?: string;
     description?: string;
   };
+  defaultLanguage: string;
+  languages: { code: string; label: string }[];
+  [locale: string]: any;
 };
 
 export type SectionId =
@@ -129,6 +131,29 @@ export interface Stat {
   suffix?: string;
 }
 
+export interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  highlights?: string[];
+}
+
+export interface Project {
+  name: string;
+  description: string;
+  tags: string[];
+  liveUrl: string;
+  repoUrl: string;
+  featured: boolean;
+}
+
+export interface Education {
+  institution: string;
+  degree: string;
+  period: string;
+}
+
 export interface Publication {
   title: string;
   authors: string;
@@ -153,6 +178,103 @@ export interface ResumeTheme {
   classic: ColorPreset;
 }
 
+// ── i18n types ──────────────────────────────────────────────────
+
+export interface LanguageEntry {
+  code: string;
+  label: string;
+}
+
+export interface LocaleUI {
+  about: string;
+  stats: string;
+  skills: string;
+  languages: string;
+  experience: string;
+  projects: string;
+  education: string;
+  certifications: string;
+  publications: string;
+  testimonials: string;
+  contact: string;
+  more: string;
+  blog: string;
+  resume: string;
+  downloadResume: string;
+  openToOpportunities: string;
+  viewMyWork: string;
+  viewResume: string;
+  scrollDown: string;
+  aboutMe: string;
+  aboutHeading: string;
+  toolbox: string;
+  skillsTitle: string;
+  careerPath: string;
+  experienceHeading: string;
+  featuredWork: string;
+  projectsHeading: string;
+  viewProject: string;
+  sourceCode: string;
+  educationHeading: string;
+  certificationsHeading: string;
+  publicationsHeading: string;
+  conference: string;
+  journal: string;
+  preprint: string;
+  testimonialsHeading: string;
+  getInTouch: string;
+  contactTitle: string;
+  contactDescription: string;
+  yourName: string;
+  yourEmail: string;
+  message: string;
+  messagePlaceholder: string;
+  sendMessage: string;
+  sending: string;
+  openInEmailApp: string;
+  orEmailDirectly: string;
+  messageSent: string;
+  somethingWentWrong: string;
+  sharePortfolio: string;
+  builtWith: string;
+  forkAndMakeYours: string;
+  whatsNew: string;
+  shareTitle: string;
+  copyLink: string;
+  linkCopied: string;
+  shareOn: string;
+  copySectionLink: string;
+  copied: string;
+  switchLanguage: string;
+  portfolio: string;
+  twoColumn: string;
+  classic: string;
+  share: string;
+  savePdf: string;
+  summary: string;
+  ghStats: string;
+}
+
+export interface LocaleContent {
+  name: string;
+  title: string;
+  tagline: string;
+  location: string;
+  about: string;
+  resumeUrl: string;
+  resumeFileName: string;
+  stats: Stat[];
+  languages: Language[];
+  skills: { category: string; items: string[] }[];
+  experience: Experience[];
+  projects: Project[];
+  education: Education[];
+  certifications: Certification[];
+  publications: Publication[];
+  testimonials: Testimonial[];
+  ui: LocaleUI;
+}
+
 export const config = {
   ...rawConfig,
   colorPreset: rawConfig.colorPreset as ColorPreset,
@@ -160,7 +282,6 @@ export const config = {
   siteMode: (rawConfig.siteMode ?? 'portfolio') as 'landing' | 'portfolio',
   sections: rawConfig.sections as SectionEntry[],
   stats: (rawConfig.stats ?? []) as Stat[],
-  languages: (rawConfig.languages ?? []) as Language[],
   certifications: (rawConfig.certifications ?? []) as Certification[],
   publications: (rawConfig.publications ?? []) as Publication[],
   testimonials: (rawConfig.testimonials ?? []) as Testimonial[],
@@ -186,4 +307,11 @@ export const config = {
     classic: (rawConfig.resumeTheme?.classic ??
       rawConfig.colorPreset) as ColorPreset,
   } as ResumeTheme,
+  defaultLanguage: rawConfig.defaultLanguage ?? 'en',
+  languages: (rawConfig.languages ?? [{ code: 'en', label: 'English' }]) as LanguageEntry[],
 };
+
+export function getContent(locale: string): LocaleContent {
+  const raw = rawConfigYaml as unknown as Record<string, any>;
+  return raw[locale] ?? raw[rawConfig.defaultLanguage ?? 'en'];
+}
