@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
-import { config } from '@/portfolio.config';
 import { fadeUpVariants } from '@/lib/animation';
+import { useI18n } from '@/lib/i18n';
 
 const fadeUp = fadeUpVariants(40, 0.75, 0.13);
 
 export function Experience() {
+  const { content, t } = useI18n();
   return (
     <section id="experience" className="px-6 py-32">
       <div className="mx-auto max-w-6xl">
@@ -16,7 +17,7 @@ export function Experience() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Career
+          {t('ui.experience')}
         </motion.p>
         <motion.h2
           variants={fadeUp}
@@ -26,14 +27,14 @@ export function Experience() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-heading text-foreground mb-14 text-4xl md:text-5xl"
         >
-          Work Experience
+          {t('ui.experienceHeading')}
         </motion.h2>
 
         <div className="relative">
           <div className="from-primary/40 via-border absolute top-2 bottom-2 left-0 hidden w-px bg-gradient-to-b to-transparent sm:block md:left-8" />
 
           <div className="flex flex-col gap-10">
-            {config.experience.map((job, i) => (
+            {content.experience.map((job, i) => (
               <motion.div
                 key={`${job.company}-${i}`}
                 variants={fadeUp}

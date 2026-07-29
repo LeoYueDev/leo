@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import { config } from '@/portfolio.config';
 import { fadeUpVariants } from '@/lib/animation';
+import { useI18n } from '@/lib/i18n';
 
 const fadeUp = fadeUpVariants(44, 0.75, 0.12);
 
 export function Projects() {
-  const featured = config.projects.filter((p) => p.featured);
-  const others = config.projects.filter((p) => !p.featured);
+  const { content, t } = useI18n();
+  const featured = content.projects.filter((p) => p.featured);
+  const others = content.projects.filter((p) => !p.featured);
 
   return (
     <section id="projects" className="bg-secondary/20 px-6 py-32">
@@ -20,7 +21,7 @@ export function Projects() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Work
+          {t('ui.featuredWork')}
         </motion.p>
         <motion.h2
           variants={fadeUp}
@@ -30,7 +31,7 @@ export function Projects() {
           viewport={{ once: true, margin: '-80px' }}
           className="section-heading text-foreground mb-14 text-4xl md:text-5xl"
         >
-          Featured Projects
+          {t('ui.projectsHeading')}
         </motion.h2>
 
         {/* Featured — large cards */}
@@ -105,7 +106,7 @@ export function Projects() {
               viewport={{ once: true, margin: '-60px' }}
               className="text-muted-foreground mb-6 font-mono text-xs font-medium tracking-widest uppercase"
             >
-              Other Projects
+              {t('ui.projects')}
             </motion.h3>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {others.map((project, i) => (
