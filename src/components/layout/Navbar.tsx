@@ -250,7 +250,7 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
             </div>
           )}
 
-          {/* {t('ui.blog')} link (when it fits directly) */}
+          {/* Blog link (when it fits directly) */}
           {blogEnabled && moreLinks.length === 0 && (
             <a
               href="#/blog"
@@ -409,7 +409,7 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
                   download={config.resumeFileName || 'resume.pdf'}
                   className="text-primary hover:bg-accent flex items-center gap-2 rounded-md px-3 py-3 text-xs font-medium tracking-widest uppercase transition-colors"
                 >
-                  <Download size={13} /> Download Resume
+                  <Download size={13} /> {t('ui.downloadResume')}
                 </a>
               ) : (
                 <a
@@ -417,7 +417,7 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
                   onClick={() => setMobileOpen(false)}
                   className="text-primary hover:bg-accent flex items-center gap-2 rounded-md px-3 py-3 text-xs font-medium tracking-widest uppercase transition-colors"
                 >
-                  <Download size={13} /> View Resume
+                  <Download size={13} /> {t('ui.viewResume')}
                 </a>
               )}
             </div>
