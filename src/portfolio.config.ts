@@ -236,8 +236,6 @@ export interface LocaleUI {
   messageSent: string;
   somethingWentWrong: string;
   sharePortfolio: string;
-  builtWith: string;
-  forkAndMakeYours: string;
   whatsNew: string;
   shareTitle: string;
   copyLink: string;

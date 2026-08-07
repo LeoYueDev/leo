@@ -140,19 +140,6 @@ export function PortfolioPage({
             </SectionWrapper>
           );
         })}
-      {config.showPoweredBy && (
-        <footer className="border-border border-t px-6 py-5 text-center">
-          <a
-            href="https://github.com/git-vitae/git-vitae.github.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground/60 hover:text-muted-foreground inline-flex items-center gap-1.5 text-[11px] transition-colors"
-          >
-            <Link2 size={10} />
-            Made with GitVitae
-          </a>
-        </footer>
-      )}
-    </div>
+      </div>
   );
 }

@@ -103,8 +103,6 @@ const UI_STRINGS = {
   messageSent: "Message sent successfully!",
   somethingWentWrong: "Something went wrong. Please try again.",
   sharePortfolio: "Share Portfolio",
-  builtWith: "Built with",
-  forkAndMakeYours: "Fork and make yours",
   whatsNew: "What's new",
   shareTitle: "Share this portfolio",
   copyLink: "Copy link",

@@ -8,7 +8,6 @@ import {
   Share2,
   CheckCircle,
   AlertCircle,
-  Sparkles,
 } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { config } from '@/portfolio.config';
@@ -315,36 +314,6 @@ export function Contact() {
           </motion.div>
 
           <ShareModal open={shareOpen} onClose={() => setShareOpen(false)} />
-
-          {/* Footer credit */}
-          <motion.div
-            variants={fadeUp}
-            custom={5}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
-            className="border-border/60 w-full border-t pt-8 text-center"
-          >
-            <p className="text-muted-foreground font-mono text-xs tracking-wide">
-              {t('ui.builtWith')}{' '}
-              <a
-                href="https://github.com/git-vitae/git-vitae.github.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary underline-offset-2 hover:underline"
-              >
-                GitVitae
-              </a>{' '}
-              &mdash; {t('ui.forkAndMakeYours')}
-            </p>
-            <button
-              onClick={() => setChangelogOpen(true)}
-              className="text-muted-foreground/60 hover:text-primary no-print mt-2 inline-flex items-center gap-1.5 text-[11px] transition-colors"
-            >
-              <Sparkles size={10} />
-              {t('ui.whatsNew')}
-            </button>
-          </motion.div>
 
           <ChangelogModal
             open={changelogOpen}
